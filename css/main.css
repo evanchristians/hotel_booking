@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=KoHo');
+* {
+    box-sizing: border-box;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    /* background: linear-gradient(to bottom, #93e7e3, #0da4c2); */
+    background: linear-gradient(to bottom, #ffe259, #ffa751);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'KoHo', sans-serif;
+    font-size: 14pt;
+    color: #353533;
+}
+
+button, input[type=text], input[type=password] {
+    font-family: 'KoHo', sans-serif;
+}
+
+header {
+    font-size: .6em;
+    display: flex;
+    background: #444441;
+    justify-content: center;
+    color: #fff;
+    padding: .4em 0;
+    box-shadow: 0 1em 2em #0000000f;
+}
+
+header h2 {
+    margin: 0;
+}
+
+main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.logbox {
+    background: #ffffff8f;
+    padding: 2em;
+    max-width: 23em;
+    box-shadow: 0 1em 3em #0000001f;
+    text-align: center;
+    margin: 2em auto;
+}
+.logbox h2 {
+    margin-bottom: 1em;
+
+}
+.inputs {
+    padding: 1em;
+}
+
+.field {
+    margin: 0 auto 2em auto;
+    border-bottom: 1px solid #214e572f;
+    transition: all 200ms ease-out;
+
+
+}
+
+button {
+    text-transform: capitalize;
+    font-size: 1em;
+    /* background: #2f6f7c; */
+    background: #444441;
+    border-radius: 2em;
+    padding: .5em 3em;
+    border: none;
+    color: #fff;
+    transition: background 100ms ease-out;
+
+}
+
+button:focus {
+    outline: none;
+}
+button:hover {
+    /* background: #214e57; */
+    background: #2b2b29;
+
+}
+input[type=text], input[type=password] {
+    font-size: 1em;
+    padding: .5em 1em;
+    background: none;
+    border: none;
+    color: #214e57;
+    transition: all 200ms ease-out;
+
+}
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+}
+
+.field:hover {
+    border-bottom: 1px solid #214e57af;
+
+}
+::placeholder {
+    color: #214e57;
+}
+
+footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #353533;
+    color: #fff;
+    font-size: .6em;
+    padding: .2em;
+    
+}
+footer h2 {
+    max-width: 1024px;
+    margin: 0 auto;
+}

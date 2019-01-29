@@ -57,6 +57,10 @@ main {
 }
 
 .field {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto 2em auto;
     border-bottom: 1px solid #214e572f;
     transition: all 200ms ease-out;

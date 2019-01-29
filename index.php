@@ -20,7 +20,7 @@
 				<div class="field">
 
 					<i class="fas fa-envelope"></i>
-					<input type="text" name="email" placeholder="email" autocomplete="off">
+					<input type="text" name="email" placeholder="you@example.com" autocomplete="off">
 
 				</div>
 				<div class="field">

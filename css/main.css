@@ -6,9 +6,10 @@
 }
 body {
     /* background: linear-gradient(to bottom, #93e7e3, #0da4c2); */
-    background: linear-gradient(to top, #0cebeb, #20e3b2, #29ffc6);
+    background: linear-gradient(to top, #ffafbdee, #ffc3a0), url('../assets/bg.jpg'); 
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     padding: 0;
     margin: 0 auto;
     font-family: 'KoHo', sans-serif;

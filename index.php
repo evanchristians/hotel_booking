@@ -14,29 +14,37 @@
 	</header>
 	<main>
 		<div class="logbox">
-
+			<?php
+				include_once('classes/logUser.php');
+				include_once('config/conn.php');
+				if (isset($_POST['login'])) {
+					$logUser = new logUser($conn);
+					$logUser->checkUser($conn);
+					$logUser->checkCred();
+				}
+			?>
 			<h2>Sign in</h2>
+			<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+				<div class="inputs">
+					<div class="field">
 
-			<div class="inputs">
-				<div class="field">
+						<i class="fas fa-envelope"></i>
+						<input type="text" name="email" value="<?php if(isset($_POST['login'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" required> 
 
-					<i class="fas fa-envelope"></i>
-					<input type="text" name="email" placeholder="you@example.com" autocomplete="off">
+					</div>
+					<div class="field">
 
+						<i class="fas fa-lock"></i>
+						<input type="password" name="pw" placeholder="password" required>
+
+					</div>
+					<button type="submit" name="login">Sign in</button>
 				</div>
-				<div class="field">
-
-					<i class="fas fa-lock"></i>
-					<input type="password" name="password" placeholder="password">
-
-				</div>
-				<button type="submit" name="login">Sign in</button>
-			</div>
-
+			</form>
 			<p>
-				Don't have an account? <a href="register.php">Register</a>.
+				Don't have an account yet? <a href="register.php">Sign up</a>.
 			</p>
-
+			<?php $conn->close(); ?>
 		</div>
 	</main>
 	<footer>

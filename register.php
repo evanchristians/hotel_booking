@@ -15,40 +15,16 @@
 	<main>
 		<div class="logbox">
 			<?php
+				include_once('config/conn.php');
+				include_once('classes/addUser.php');
+			
+				$addUser = new addUser($conn);
+
 				if (isset($_POST['register'])) {
-
-					$pass_auth = true;
-					$email_auth = true;
-
-					// PASSWORD VALIDATION
-
-					if ($_POST["pw"] !== $_POST["c_pw"]) {
-						$pass_auth = false;
-						?>
-							<div class="error">
-								<i class="fas fa-exclamation-circle"></i>
-								Passwords do not match
-							</div>
-						<?php
-					}
-					
-					// EMAIL VALIDATION
-
-					if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-						$email_auth = false;
-						?>
-							<div class="error">
-								<i class="fas fa-exclamation-circle"></i>
-								Enter a valid email address
-							</div>
-						<?php
-					}
-
-					if ($pass_auth && $email_auth) {
-						header("Location: index.php");
-						die();
-					}
-
+					$addUser->checkUser($conn);
+					$addUser->passValidation();
+					$addUser->emailValidation();
+					$addUser->confirmUser($conn);
 				}
 			?>
 			<h2>Sign Up</h2>
@@ -79,7 +55,6 @@
 				Already have an account? <a href="index.php">Sign in</a>.
 			</p>
 		</div>
-
 	</main>
 	<footer>
 		<h2>copyright &copy EVAN CHRISTIANS 2018</h2>

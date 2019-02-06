@@ -23,9 +23,9 @@ button, input[type=text], input[type=password] {
 header {
     font-size: .6em;
     display: flex;
-    background: #444441;
+    background: #353533;
     justify-content: center;
-    color: #fff;
+    color: #ffe259;
     padding: .4em 0;
     box-shadow: 0 1em 2em #0000000f;
 }
@@ -41,15 +41,17 @@ main {
 }
 
 .logbox {
+    position: relative;
     background: #ffffff8f;
     padding: 2em;
     max-width: 23em;
     box-shadow: 0 1em 3em #0000001f;
     text-align: center;
     margin: 2em auto;
+    border-radius: .2em;
 }
 .logbox h2 {
-    margin-bottom: 1em;
+    margin: 1.25em auto;
 
 }
 .inputs {
@@ -107,7 +109,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 ::placeholder {
-    color: #214e57;
+    color: #666766;
 }
 
 footer {
@@ -124,4 +126,18 @@ footer {
 footer h2 {
     max-width: 1024px;
     margin: 0 auto;
+}
+
+.logbox a {
+    color: #000;
+}
+
+.error {
+	position: relative;
+    /* border: 1px solid #dd2f2f; */
+    color: #fff;
+    background: #dd2f2f88;
+    border-radius: .2em;
+    /* right: -10px; */
+    padding: .2em;
 }

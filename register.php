@@ -14,18 +14,41 @@
 	</header>
 	<main>
 		<div class="logbox">
-			<!-- <div class="error">error text</div> -->
 			<?php
 				if (isset($_POST['register'])) {
-					if ($_POST["pw"] === $_POST["c_pw"]) {
+
+					$pass_auth = true;
+					$email_auth = true;
+
+					// PASSWORD VALIDATION
+
+					if ($_POST["pw"] !== $_POST["c_pw"]) {
+						$pass_auth = false;
 						?>
-							<div class="success">Registered Successfully</div>
+							<div class="error">
+								<i class="fas fa-exclamation-circle"></i>
+								Passwords do not match
+							</div>
 						<?php
-					} else {
+					}
+					
+					// EMAIL VALIDATION
+
+					if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+						$email_auth = false;
 						?>
-							<div class="error">Passwords Do Not Match</div>
+							<div class="error">
+								<i class="fas fa-exclamation-circle"></i>
+								Enter a valid email address
+							</div>
 						<?php
-					} 
+					}
+
+					if ($pass_auth && $email_auth) {
+						header("Location: index.php");
+						die();
+					}
+
 				}
 			?>
 			<h2>Sign Up</h2>
@@ -34,22 +57,22 @@
 					<div class="field">
 
 						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" value="" placeholder="you@example.com" autocomplete="off">
+						<input type="text" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" required> 
 
 					</div>
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
-						<input type="password" name="pw" placeholder="password">
+						<input type="password" name="pw" placeholder="password" required>
 
 					</div>
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
-						<input type="password" name="c_pw" placeholder="confirm password">
+						<input type="password" name="c_pw" placeholder="confirm password" required>
 
 					</div>
-					<button type="submit" name="register">Sign Up</button>
+					<button type="submit" name="register">Sign up</button>
 				</div>
 			</form>
 			<p>

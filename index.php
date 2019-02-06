@@ -14,9 +14,8 @@
 	</header>
 	<main>
 		<div class="logbox">
-			<div class="error">error text</div>
 
-			<h2>Welcome back</h2>
+			<h2>Sign in</h2>
 
 			<div class="inputs">
 				<div class="field">
@@ -31,7 +30,7 @@
 					<input type="password" name="password" placeholder="password">
 
 				</div>
-				<button type="submit" name="login">Sign In</button>
+				<button type="submit" name="login">Sign in</button>
 			</div>
 
 			<p>

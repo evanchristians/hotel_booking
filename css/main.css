@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=KoHo');
+@import url('https://fonts.googleapis.com/css?family=KoHo:300');
 * {
     box-sizing: border-box;
     font-weight: 300;
@@ -6,7 +6,7 @@
 }
 body {
     /* background: linear-gradient(to bottom, #93e7e3, #0da4c2); */
-    background: linear-gradient(to bottom, #ffe259, #ffa751);
+    background: linear-gradient(to top, #0cebeb, #20e3b2, #29ffc6);
     background-repeat: no-repeat;
     min-height: 100vh;
     padding: 0;
@@ -25,7 +25,7 @@ header {
     display: flex;
     background: #353533;
     justify-content: center;
-    color: #ffe259;
+    color: #ddd;
     padding: .4em 0;
     box-shadow: 0 1em 2em #0000000f;
 }
@@ -37,7 +37,7 @@ header h2 {
 main {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 1em;
+    /* padding: 1em; */
 }
 
 .logbox {
@@ -80,6 +80,7 @@ button {
     border: none;
     color: #fff;
     transition: background 100ms ease-out;
+    margin-top: 2em;
 
 }
 
@@ -133,11 +134,20 @@ footer h2 {
 }
 
 .error {
+    max-width: 17em;
 	position: relative;
     /* border: 1px solid #dd2f2f; */
-    color: #fff;
-    background: #dd2f2f88;
-    border-radius: .2em;
+    /* background: #0000005f; */
+    color: #333;
+    /* border-radius: .2em; */
     /* right: -10px; */
-    padding: .2em;
+    /* padding: .2em; */
+    margin: 0 auto .5em auto;
+}
+
+.error .fas {
+    position: absolute;;
+    top: 50%;
+    left: .5em;
+    transform: translateY(-50%);
 }

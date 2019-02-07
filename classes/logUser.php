@@ -41,6 +41,8 @@
         $password = $_POST['pw'];
         if ($this->user_row['password'] == $password) {
           echo "user: " . $this->email . " logged in successfully";
+          header("Location: book.php");
+          $_SESSION['user'] = $this->email;
         } else {
           ?>
             <div class="error">

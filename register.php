@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include_once('config/conn.php');
+	include_once('classes/addUser.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +15,12 @@
 </head>
 <body>
 	<header>
-		<h2>BookingSauce</h2>
+		<h2>HotelBooking</h2>
 	</header>
 	<main>
 		<div class="logbox">
-			<?php
-				include_once('config/conn.php');
-				include_once('classes/addUser.php');
-			
+			<?php			
 				$addUser = new addUser($conn);
-
 				if (isset($_POST['register'])) {
 					$addUser->checkUser($conn);
 					$addUser->passValidation();

@@ -1,3 +1,8 @@
+<?php
+	include_once('classes/logUser.php');
+	include_once('config/conn.php');
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +15,11 @@
 </head>
 <body>
 	<header>
-		<h2>BookingSauce</h2>
+		<h2>HotelBooking</h2>
 	</header>
 	<main>
 		<div class="logbox">
 			<?php
-				include_once('classes/logUser.php');
-				include_once('config/conn.php');
 				if (isset($_POST['login'])) {
 					$logUser = new logUser($conn);
 					$logUser->checkUser($conn);

@@ -1,7 +1,4 @@
 <?php
-
-  include_once('./config/conn.php');
-
   class addUser {
     public $pass_auth = true;
     public $email_auth = true;
@@ -12,6 +9,7 @@
     function __construct($conn) {
       $sql_create_table = "CREATE TABLE IF NOT EXISTS users(
         id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(32) NOT NULL,
         email VARCHAR(64) NOT NULL,
         password VARCHAR(64) NOT NULL
         );";
@@ -70,13 +68,14 @@
     // CONFIRM NEW USER
     function confirmUser($conn) {
         if ($this->pass_auth && $this->email_auth && $this->no_user) {
+          $name = $_POST['name'];
           $email = $_POST['email'];
           $password = $_POST['pw'];
-          $sql_new_user = "INSERT INTO users(email, password) VALUES ('$email', '$password')";
+          $sql_new_user = "INSERT INTO users(name, email, password) VALUES ('$name', '$email', '$password')";
           if (!$conn->query($sql_new_user)) {
             echo "error: " . $conn->error;
           } else {
-            header("Location: index.php");
+            header("Location: reg_success.php");
             die();
 
           }

@@ -33,6 +33,12 @@
 				<div class="inputs">
 					<div class="field">
 
+						<i class="fas fa-user"></i>
+						<input type="text" name="name" placeholder="name" value="<?php if(isset($_POST['register'])){ echo $_POST['name']; } ?>" autocomplete="off" required> 
+
+					</div>
+					<div class="field">
+
 						<i class="fas fa-envelope"></i>
 						<input type="text" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" required> 
 

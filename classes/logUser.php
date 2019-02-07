@@ -5,16 +5,6 @@
     public $user_row;
     public $email;
 
-    // CREATE TABLE OF USERS
-    function __construct($conn) {
-      $sql_create_table = "CREATE TABLE IF NOT EXISTS users(
-        id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(64) NOT NULL,
-        password VARCHAR(64) NOT NULL
-        );";
-      $conn->query($sql_create_table);
-    }
-
     // CHECK IF USER EXISTS
     function checkUser($conn) {
       $this->email = $_POST['email'];
@@ -40,9 +30,9 @@
       if ($this->email_check) {
         $password = $_POST['pw'];
         if ($this->user_row['password'] == $password) {
-          echo "user: " . $this->email . " logged in successfully";
+          echo "user: " . $this->user_row['name'] . " logged in successfully";
           header("Location: book.php");
-          $_SESSION['user'] = $this->email;
+          $_SESSION['user'] = $this->user_row['name'];
         } else {
           ?>
             <div class="error">

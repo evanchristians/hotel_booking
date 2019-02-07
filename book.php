@@ -12,7 +12,7 @@
   <header>
   <h2>HotelBooking</h2>
   <h3>
-    Logged in as <?php echo $_SESSION['user']; ?> | <a href="index.php">Sign out</a>
+    Logged in as <?php echo $_SESSION['user']; ?> | &nbsp <a href="index.php">Sign out</a>
   </h3>
   </header>
   <main>

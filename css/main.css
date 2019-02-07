@@ -55,6 +55,7 @@ main {
     max-width: 1240px;
     margin: 0 auto;
     /* padding: 1em; */
+    text-align: center;
 }
 
 .logbox {
@@ -175,6 +176,22 @@ footer h2 {
 .redir {
     text-align: center;
 }
+
+.cta {
+    /* text-transform: capitalize; */
+    font-size: .8em;
+    /* background: #2f6f7c; */
+    background: #2b2b29aa;
+    border-radius: 2em;
+    padding: .5em .75em;
+    border: none;
+    color: #fff;
+    transition: background 100ms ease-out;
+    /* margin-top: 2em; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
 /* LOADER */
 
 .lds-ellipsis {

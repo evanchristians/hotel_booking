@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=KoHo:400,800');
+@import url('https://fonts.googleapis.com/css?family=KoHo:500,800');
 * {
     box-sizing: border-box;
     /* font-weight: 300; */
@@ -6,7 +6,7 @@
 }
 body {
     /* background: linear-gradient(to bottom, #93e7e3, #0da4c2); */
-    background: linear-gradient(to bottom, #0cebeb 2em, #20e3b2, #29ffc6dd), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #b2fefa, #0ed2f7ee), url('../assets/bg.jpg'); 
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -14,7 +14,7 @@ body {
     margin: 0 auto;
     font-family: 'KoHo', sans-serif;
     font-size: 14pt;
-    color: #353533;
+    color: #040404;
     position: relative;
 }
 
@@ -29,13 +29,13 @@ header {
     /* background: #353533; */
     /* background: #f4f4f4dd; */
     align-items: center;
-    color: #444;
+    color: #040404;
     padding: .4em 3em;
     /* box-shadow: 0 1em 2em #0000000f; */
     /* display: none; */
 }
 header a {
-    color: #444;
+    color: #040404;
 }
 header h3 {
     width: 100%;
@@ -131,7 +131,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 ::placeholder {
-    color: #666766;
+    color: #040404aa;
 }
 
 footer {

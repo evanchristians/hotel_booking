@@ -21,7 +21,7 @@
   <script>
     window.onload = setTimeout(function () {
       window.location.href = "index.php";
-    }, 1500);
+    }, 2000);
   </script>
 </body>
 </html>

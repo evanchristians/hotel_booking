@@ -25,6 +25,9 @@
 					$logUser->checkUser($conn);
 					$logUser->checkCred();
 				}
+				if (isset($_POST['logout'])) {
+					session_destroy();
+				}
 			?>
 			<h2>Sign in</h2>
 			<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">

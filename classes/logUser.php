@@ -4,6 +4,17 @@
     public $user_result;
     public $user_row;
     public $email;
+    
+    // CREATE TABLE OF USERS
+    function __construct($conn) {
+      $sql_create_table = "CREATE TABLE IF NOT EXISTS users(
+        id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(32) NOT NULL,
+        email VARCHAR(64) NOT NULL,
+        password VARCHAR(64) NOT NULL
+        );";
+      $conn->query($sql_create_table);
+    }
 
     // CHECK IF USER EXISTS
     function checkUser($conn) {
@@ -33,6 +44,7 @@
           echo "user: " . $this->user_row['name'] . " logged in successfully";
           header("Location: book.php");
           $_SESSION['user'] = $this->user_row['name'];
+          $_SESSION['email'] = $this->user_row['email'];
         } else {
           ?>
             <div class="error">

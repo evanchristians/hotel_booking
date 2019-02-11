@@ -12,9 +12,11 @@
     <h2>HotelBooking</h2>
   </header>
   <main class="redir">
-    <p>Account created successfully</p>
-    <p>Redirecting..</p>
-    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    <section>
+      <h2>Account created successfully</h2>
+      <p>Redirecting..</p>
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </section>
   </main>
   <footer>
   </footer>

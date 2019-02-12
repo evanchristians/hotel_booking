@@ -45,5 +45,24 @@
         };
       }
     }
+
+    // SHOW BOOKING BEFORE CONFIRM
+    
+    function showBooking($conn) {
+      if (isset($_POST['book'])) {
+        $sql_show_booking = "SELECT * FROM  tbl_booking WHERE guest = $this->email";
+        $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = $this->hotel";
+        if(!$conn->query($sql_show_booking) OR !$conn) {
+          // echo "ERROR: " . $conn->error;
+        } else {
+          echo "hello";
+          ?>
+            Booking for: <?php echo $this->email ?> <br>
+            At the: <?php echo $this->hotelname ?> <br>
+            from: <?php echo $this->date_in ?> to: <?php echo $this->date_out ?> <br>
+          <?php
+        }
+      }
+    }
   }
 ?>

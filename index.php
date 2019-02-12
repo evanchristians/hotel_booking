@@ -44,7 +44,7 @@
 						<input type="password" name="pw" placeholder="password" required>
 
 					</div>
-					<button type="submit" name="login">Sign in</button>
+					<button type="submit" name="login" id="login">Sign in</button>
 				</div>
 			</form>
 			<p>
@@ -56,5 +56,23 @@
 	<footer>
 		<h2>copyright &copy EVAN CHRISTIANS 2018</h2>
 	</footer>
+	<script>
+	    $(document).ready(function() {
+
+$("#login").click(function() {                
+
+	$.ajax({    //create an ajax request to display.php
+		type: "POST",
+		url: "reg_success.php",             
+		dataType: "html",   //expect html to be returned                
+		success: function(response){                    
+				$("#stars").html(response); 
+				//alert(response);
+		}
+
+});
+});
+});
+	</script>
 </body>
 </html>

@@ -94,7 +94,7 @@
                 </select>
               </div>
             </div>
-            <button type="submit" name="book">Make booking</button>
+            <button type="submit" name="book" id="book">Make booking</button>
           </div>
         </div>
         <div id="hotel_image">
@@ -124,6 +124,7 @@
   </main>
     <?php
   }
+  $makeBooking->showBooking($conn);
   ?>
   <footer>
   </footer>
@@ -145,6 +146,23 @@
         $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");
       }      
     })
+    
+    $(document).ready(function() {
+
+    $("#book").click(function() {                
+
+      $.ajax({    //create an ajax request to display.php
+        type: "POST",
+        url: "confirm.php",             
+        dataType: "html",   //expect html to be returned                
+        success: function(response){                    
+            $("#stars").html(response); 
+            //alert(response);
+        }
+
+    });
+    });
+    });
   </script>
 </body>
 </html>

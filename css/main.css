@@ -271,15 +271,15 @@ footer h2 {
 .hotel_desc {
     position: relative;
     background: #CF1259;
-    padding: 1.5em;
+    padding: 1em;
     color: #fff;
     text-align: center;
     z-index: 10;
-    box-shadow: 0 .2em 1em #0404041a;
+    box-shadow: 0 .2em 1em #0404042a;
 }
 
 #hotel_image:hover .overlay {
-    background: #CF1259ef;
+    background: #040404aa;
     opacity: 1;
 }
 select, input[type="date"] {

@@ -13,7 +13,7 @@ body {
     padding: 0;
     margin: 0 auto;
     font-family: 'KoHo', sans-serif;
-    font-size: 14pt;
+    font-size: 12pt;
     color: #141414;
     position: relative;
 }
@@ -34,6 +34,8 @@ button, input[type=text], input[type=password] {
 header {
     font-size: .7em;
     display: flex;
+    /* max-width: 140em; */
+    margin: 0 auto;
     width: 100%;
     align-items: center;
     color: #010101;

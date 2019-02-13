@@ -1,6 +1,6 @@
 <?php 
   session_start(); 
-  include_once('config/conn.php');
+  include_once('config/config.php');
   include_once('classes/makeBooking.php');
 ?>
 <!DOCTYPE html>
@@ -22,8 +22,8 @@
   <h2>HotelBooking</h2>
   <?php
   if (isset($_SESSION['user'])) {
+    $makeBooking = new makeBooking($conn);
     if(isset($_POST['book'])) {
-      $makeBooking = new makeBooking($conn);
       $makeBooking->insertBooking($conn);
     }
     ?>
@@ -98,7 +98,13 @@
           </div>
         </div>
         <div id="hotel_image">
-          <div class="overlay"></div>
+          <div class="overlay">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
           <div class="hotel_desc">
             <h2 id="hotel_name">Long Street Backpackers</h2>
           </div>
@@ -135,6 +141,7 @@
       if (sel.val() === "lsb") {
         $( "#hotel_image" ).css("background-image", "url('assets/lsb.png')");
         $( "#hotel_name" ).text("Long Street Backpackers");
+        // $( "#stars").prependTo()
       } else if(sel.val() === "dlla") {
         $( "#hotel_image" ).css("background-image", "url('assets/dlla.png')");
         $( "#hotel_name" ).text("Daddy Long Legs Art Hotel & Self-Catering Apartments");
@@ -145,24 +152,7 @@
         $( "#hotel_image" ).css("background-image", "url('assets/dth.png')");   
         $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");
       }      
-    })
-    
-    $(document).ready(function() {
-
-    $("#book").click(function() {                
-
-      $.ajax({    //create an ajax request to display.php
-        type: "POST",
-        url: "confirm.php",             
-        dataType: "html",   //expect html to be returned                
-        success: function(response){                    
-            $("#stars").html(response); 
-            //alert(response);
-        }
-
-    });
-    });
-    });
+    })  
   </script>
 </body>
 </html>

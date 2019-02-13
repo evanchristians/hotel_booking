@@ -1,6 +1,6 @@
 <?php
 	include_once('classes/logUser.php');
-	include_once('config/conn.php');
+	include_once('config/config.php');
 	session_start();
 ?>
 <!DOCTYPE html>

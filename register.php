@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once('config/conn.php');
+	include_once('config/config.php');
 	include_once('classes/addUser.php');
 ?>
 <!DOCTYPE html>

@@ -12,10 +12,7 @@
   <title>Make a booking</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -34,7 +31,7 @@
       </h3>
     </form>
   </header>
-  <main>
+  <main class="hidden">
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" class="grid">
         <div class="logbox">
           <h2>Make a booking</h2>
@@ -136,21 +133,27 @@
   <footer>
   </footer>
   <script>
+
+    $(document).ready(function() {
+      window.console&&console.log("working");
+      $('main').fadeIn(400).removeClass('hidden');
+    });
+
     $( "select" ).change(function() {
       var sel = $( "select option:selected" );
       window.console&&console.log(sel.val());
       if (sel.val() === "lsb") {
-        $( "#hotel_image" ).css("background-image", "url('assets/lsb.png')");
+        $( "#hotel_image" ).css("background-image", "url('assets/lsb.jpg')");
         $( "#hotel_name" ).text("Long Street Backpackers");
         // $( "#stars").prependTo()
       } else if(sel.val() === "dlla") {
-        $( "#hotel_image" ).css("background-image", "url('assets/dlla.png')");
+        $( "#hotel_image" ).css("background-image", "url('assets/dlla.jpg')");
         $( "#hotel_name" ).text("Daddy Long Legs Art Hotel & Self-Catering Apartments");
       } else if(sel.val() === "ttb") {
-        $( "#hotel_image" ).css("background-image", "url('assets/ttb.png')");         
+        $( "#hotel_image" ).css("background-image", "url('assets/ttb.jpg')");         
         $( "#hotel_name" ).text("The Table Bay Hotel");
       } else if(sel.val() === "dth") {   
-        $( "#hotel_image" ).css("background-image", "url('assets/dth.png')");   
+        $( "#hotel_image" ).css("background-image", "url('assets/dth.jpg')");   
         $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");
       }      
     })  

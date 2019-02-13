@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #eeeeee, #dddddd), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #e4e4e4, #dfdfdf), url('../assets/bg.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -247,11 +247,11 @@ footer h2 {
 }
 .grid .logbox {
     max-width: 100%;
-    background: #ffffff2f;
+    background: #ffffffdf;
 }
 #hotel_image {
     position: relative;
-    background-image: url('../assets/lsb.png');
+    background-image: url('../assets/lsb.jpg');
     background-size: cover !important;
     background-repeat: no-repeat;
     position: relative;
@@ -264,10 +264,10 @@ footer h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FD520000;
-    transition: all 178ms ease-out;
+    background: #ffffff4f;
+    transition: all 178ms ease-in-out;
     z-index: 0;
-    opacity: .5;
+    /* opacity: .5; */
 }
 
 .hotel_desc {
@@ -290,8 +290,8 @@ footer h2 {
 }
 
 #hotel_image:hover .overlay {
-    background: #040404aa;
-    opacity: 1;
+    background: #ffffff00;
+    /* opacity: 1; */
 }
 select, input[type="date"] {
     outline: 1px solid #FD520000;
@@ -301,6 +301,10 @@ select, input[type="date"] {
 }
 select:focus, input[type="date"]:focus {
     outline: 1px solid #FD5200bb;
+}
+
+.hidden {
+    display: none;
 }
 /* LOADER */
 

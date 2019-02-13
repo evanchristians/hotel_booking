@@ -12,12 +12,13 @@
 	<title>Sign in</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
 		<h2>HotelBooking</h2>
 	</header>
-	<main>
+	<main class="hidden">
 		<div class="logbox">
 			<?php
 				if (isset($_POST['login'])) {
@@ -57,22 +58,26 @@
 		<h2>copyright &copy EVAN CHRISTIANS 2018</h2>
 	</footer>
 	<script>
-	    $(document).ready(function() {
+		// $(document).ready(function() {
 
-$("#login").click(function() {                
+		// $("#login").click(function() {                
 
-	$.ajax({    //create an ajax request to display.php
-		type: "POST",
-		url: "reg_success.php",             
-		dataType: "html",   //expect html to be returned                
-		success: function(response){                    
-				$("#stars").html(response); 
-				//alert(response);
-		}
+		// 	$.ajax({    //create an ajax request to display.php
+		// 		type: "POST",
+		// 		url: "reg_success.php",             
+		// 		dataType: "html",   //expect html to be returned                
+		// 		success: function(response){                    
+		// 				$("#stars").html(response); 
+		// 				//alert(response);
+		// 		}
 
-});
-});
-});
+		// });
+		// });
+		// });
+		$(document).ready(function() {
+			window.console&&console.log("working");
+			$('main').fadeIn(400).removeClass('hidden');
+    });
 	</script>
 </body>
 </html>

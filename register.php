@@ -12,12 +12,13 @@
 	<title>Register</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
 		<h2>HotelBooking</h2>
 	</header>
-	<main>
+	<main class="hidden">
 		<div class="logbox">
 			<?php			
 				$addUser = new addUser($conn);
@@ -66,5 +67,11 @@
 	<footer>
 		<h2>copyright &copy EVAN CHRISTIANS 2018</h2>
 	</footer>
+	<script>
+	    $(document).ready(function() {
+      window.console&&console.log("working");
+      $('main').fadeIn(400).removeClass('hidden');
+    });
+	</script>
 </body>
 </html>

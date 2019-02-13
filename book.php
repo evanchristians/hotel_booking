@@ -25,6 +25,7 @@
     $makeBooking = new makeBooking($conn);
     if(isset($_POST['book'])) {
       $makeBooking->insertBooking($conn);
+      $makeBooking->showBooking($conn);
     }
     ?>
     <form action="index.php" method="post">
@@ -130,7 +131,7 @@
   </main>
     <?php
   }
-  $makeBooking->showBooking($conn);
+
   ?>
   <footer>
   </footer>

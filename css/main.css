@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #FFFFFF, #EAEDF9dd), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #eeeeee, #dddddd), url('../assets/bg.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -43,7 +43,7 @@ header {
 }
 
 header a {
-    color: #CF1259;
+    color: #FD5200;
 }
 
 header h3 {
@@ -57,7 +57,7 @@ header h3 {
 }
 
 header h2 {
-    color: #CF1259;
+    color: #FD5200;
     width: 100%;
     margin: .5em;
     display: flex;
@@ -66,13 +66,13 @@ header h2 {
 
 h1 {
     font-size: 5em;
-    color: #CF1259;
+    color: #FD5200;
 }
 
 .cap {
     font-weight: 800;
     text-transform: capitalize;
-    color: #CF1259 !important;
+    color: #FD5200 !important;
 }
 
 main {
@@ -94,7 +94,7 @@ main {
 }
 .logbox h2 {
     margin: 1.25em auto;
-    color: #CF1259;
+    color: #FD5200;
 
 }
 .inputs {
@@ -125,7 +125,7 @@ main {
 
 button {
     font-size: 1em;
-    background: #CF1259dd;
+    background: #FD5200dd;
     border-radius: 2em;
     padding: .5em 2em;
     border: none;
@@ -140,7 +140,7 @@ button:focus {
     outline: none;
 }
 button:hover {
-    background: #CF1259;
+    background: #FD5200;
 
 }
 input[type=text], input[type=password], input[type=date], select {
@@ -181,7 +181,7 @@ footer h2 {
 }
 
 .logbox a {
-    color: #CF1259;
+    color: #FD5200;
 }
 
 .error {
@@ -198,19 +198,19 @@ footer h2 {
     transform: translateY(-50%);
 }
 .fas, .far {
-    color: #CF1259;
+    color: #FD5200;
 }
 .redir {
     text-align: center;
 }
 
 .redir h2 {
-    color: #CF1259;
+    color: #FD5200;
 }
 
 .cta {
     font-size: .8em;
-    background: #CF1259bb;
+    background: #FD5200bb;
     border-radius: 2em;
     padding: .2em .75em;
     border: none;
@@ -222,7 +222,7 @@ footer h2 {
 }
 
 .cta:hover {
-    background: #CF1259;
+    background: #FD5200;
 }
 
 .link {
@@ -230,7 +230,7 @@ footer h2 {
     margin: 0;
     padding: 0;
     background: none;
-    color: #CF1259 !important;
+    color: #FD5200 !important;
     text-decoration: underline;
 }
 .link:hover {
@@ -241,7 +241,7 @@ footer h2 {
     grid-template-columns: 1fr 1.5fr;
     max-width: 60em;
     width: 100% !important;
-    box-shadow: 0 .4em 2em #0404041a;
+    /* box-shadow: 0 .4em 2em #0404041a; */
     border-radius: .2em;
     overflow: hidden;
 }
@@ -264,20 +264,29 @@ footer h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #CF125900;
+    background: #FD520000;
     transition: all 178ms ease-out;
     z-index: 0;
     opacity: .5;
 }
 
 .hotel_desc {
+    font-size: .7em;
     position: relative;
-    background: #CF1259;
-    padding: 1em;
+    background: #FD5200;
+    padding: .618em 1.4em;
     color: #fff;
     text-align: center;
     z-index: 10;
-    box-shadow: 0 .2em 1em #0404042a;
+    /* box-shadow: 0 .2em 1em #0404042a; */
+    width: fit-content;
+    margin: 0 auto;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+}
+.hotel_desc h2 {
+    margin: 0;
+    font-weight: 400;
 }
 
 #hotel_image:hover .overlay {
@@ -285,13 +294,13 @@ footer h2 {
     opacity: 1;
 }
 select, input[type="date"] {
-    outline: 1px solid #CF125900;
+    outline: 1px solid #FD520000;
     transition: all 178ms ease-out;
     outline-offset: -3px;
 
 }
 select:focus, input[type="date"]:focus {
-    outline: 1px solid #CF1259bb;
+    outline: 1px solid #FD5200bb;
 }
 /* LOADER */
 
@@ -307,7 +316,7 @@ select:focus, input[type="date"]:focus {
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: #CF1259;
+    background: #FD5200;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   .lds-ellipsis div:nth-child(1) {
@@ -365,11 +374,11 @@ select:focus, input[type="date"]:focus {
 
   @media(max-width: 640px) {
       body {
-        font-size: 12pt;
+        font-size: 11pt;
       }
       header {
         display: block;
-        background: #CF1259;
+        background: #FD5200;
         color: #fff !important;
       }
       header h2 {

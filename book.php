@@ -12,7 +12,8 @@
   <title>Make a booking</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -22,7 +23,6 @@
     $makeBooking = new makeBooking($conn);
     if(isset($_POST['book'])) {
       $makeBooking->insertBooking($conn);
-      $makeBooking->showBooking($conn);
     }
     ?>
     <form action="index.php" method="post">
@@ -102,6 +102,11 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
+            <div class="description" id="description">
+              <div class="stars" id="stars">
+                **
+              </div>
+            </div>
           </div>
           <div class="hotel_desc">
             <h2 id="hotel_name">Long Street Backpackers</h2>
@@ -109,7 +114,11 @@
         </div>
     </form>
   </main>
+  <footer>
+    <h2>copyright &copy EVAN CHRISTIANS 2018</h2> 
+  </footer>
     <?php
+  $makeBooking->showBooking($conn);
   } else {
     ?>
     <h3>
@@ -128,9 +137,11 @@
   </main>
     <?php
   }
+  
 
   ?>
   <footer>
+    <h2>copyright &copy EVAN CHRISTIANS 2018</h2>
   </footer>
   <script>
 
@@ -139,22 +150,30 @@
       $('main').fadeIn(400).removeClass('hidden');
     });
 
+    $("button").click(function(){
+        $("main").fadeOut(1000).addClass('hidden');
+    });
+
     $( "select" ).change(function() {
       var sel = $( "select option:selected" );
       window.console&&console.log(sel.val());
       if (sel.val() === "lsb") {
         $( "#hotel_image" ).css("background-image", "url('assets/lsb.jpg')");
         $( "#hotel_name" ).text("Long Street Backpackers");
+        $( "#stars" ).text("**");
         // $( "#stars").prependTo()
       } else if(sel.val() === "dlla") {
         $( "#hotel_image" ).css("background-image", "url('assets/dlla.jpg')");
         $( "#hotel_name" ).text("Daddy Long Legs Art Hotel & Self-Catering Apartments");
+        $( "#stars" ).text("***");
       } else if(sel.val() === "ttb") {
         $( "#hotel_image" ).css("background-image", "url('assets/ttb.jpg')");         
         $( "#hotel_name" ).text("The Table Bay Hotel");
+        $( "#stars" ).text("****");
       } else if(sel.val() === "dth") {   
         $( "#hotel_image" ).css("background-image", "url('assets/dth.jpg')");   
         $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");
+        $( "#stars" ).text("*****");
       }      
     })  
   </script>

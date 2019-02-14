@@ -7,7 +7,7 @@
     
     // CREATE TABLE OF USERS
     function __construct($conn) {
-      $sql_create_table = "CREATE TABLE IF NOT EXISTS users(
+      $sql_create_table = "CREATE TABLE IF NOT EXISTS tbl_users(
         id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(32) NOT NULL,
         email VARCHAR(64) NOT NULL,
@@ -19,7 +19,7 @@
     // CHECK IF USER EXISTS
     function checkUser($conn) {
       $this->email = $_POST['email'];
-      $sql_check_email = "SELECT * FROM users WHERE email = '$this->email'";
+      $sql_check_email = "SELECT * FROM tbl_users WHERE email = '$this->email'";
       $this->user_result = $conn->query($sql_check_email);
       $this->user_row = $this->user_result->fetch_array(MYSQLI_ASSOC);
       if (!$this->user_row) {

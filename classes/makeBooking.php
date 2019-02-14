@@ -8,8 +8,10 @@
     public $guests;
     public $rooms;
 
-    // CREATE TABLE FOR BOOKINGS
+    // CREATE TABLE FOR BOOKINGS AND HOTELS
     function __construct($conn) {
+
+      // BOOKINGS
       $sql_tbl_booking = "CREATE TABLE IF NOT EXISTS tbl_booking (
         id INT(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         time_created TIMESTAMP NOT NULL,
@@ -24,6 +26,38 @@
       if(!$conn->query($sql_tbl_booking)) {
         // echo "ERROR: " . $conn->error;
       }
+
+      // HOTELS
+      $sql_hotel = "CREATE TABLE IF NOT EXISTS tbl_hotels (
+        id INT(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        hotel_code VARCHAR(4) NOT NULL UNIQUE,
+        hotel_name VARCHAR(100) NOT NULL,
+        hotel_description VARCHAR(255) NOT NULL,
+        hotel_stars INT(1) NOT NULL
+        )";
+      if(!$conn->query($sql_hotel)) {
+        // echo "ERROR: " . $conn->error;
+      }
+
+      // HOTEL DEFAULT
+      $sql_hotel_default = "INSERT INTO tbl_hotels(
+        hotel_code, hotel_name, hotel_description, hotel_stars
+        )
+        VALUES(
+        'lsb', 'Long Street Backpackers', 'lorem ipsum', '2'
+        ),
+        (
+        'dlla', 'Daddy Long Legs Art Hotel & Self-Catering Apartments', 'lorem ipsum', '3'
+        ),
+        (
+        'ttb', 'The Table Bay Hotel', 'lorem ipsum', '4'
+        ),
+        (
+        'dth', 'DoubleTree by Hilton Hotel Cape Town - Upper Eastside','lorem ipsum', '5'
+        )";
+      if(!$conn->query($sql_hotel_default)) {
+        // echo "ERROR: " . $conn->error;
+      }  
     }
 
     // INSERT A BOOKING
@@ -47,20 +81,30 @@
     }
 
     // SHOW BOOKING BEFORE CONFIRM
-    
     function showBooking($conn) {
       if (isset($_POST['book'])) {
-        $sql_show_booking = "SELECT * FROM  tbl_booking WHERE guest = $this->email";
-        $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = $this->hotel";
-        if(!$conn->query($sql_show_booking) OR !$conn) {
-          // echo "ERROR: " . $conn->error;
-        } else {
-          echo "hello";
+        $sql_show_booking = "SELECT * FROM  tbl_booking WHERE guest = '$this->email'";
+        $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = '$this->hotel'";
+        $get_hotel = $conn->query($sql_get_hotel);
+        $hotel_row = $get_hotel->fetch_array(MYSQLI_ASSOC);
+        $hotel_name = $hotel_row['hotel_name'];
+        $date_in_obj = new DateTime($this->date_in);
+        $date_out_obj = new DateTime($this->date_out);
+        $difference = $date_in_obj->diff($date_out_obj)->format("%d");
+        if($conn->query($sql_show_booking)) {
           ?>
             Booking for: <?php echo $this->email ?> <br>
-            At the: <?php echo $this->hotelname ?> <br>
+            At : <?php echo $hotel_name ?> <br>
             from: <?php echo $this->date_in ?> to: <?php echo $this->date_out ?> <br>
+            for: <?php if($difference == 1) {
+              echo $difference . " day"; 
+            } else {
+              echo $difference . " days";
+            }
+          ?>
           <?php
+        } else {
+          echo "ERROR: " . $conn->error;
         }
       }
     }

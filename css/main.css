@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=KoHo:500,800');
+@import url('https://fonts.googleapis.com/css?family=KoHo:400,800');
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background: linear-gradient(to bottom, #e4e4e4, #dfdfdf), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #f4f4f4, #d4d4d4), url('../assets/bg.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -32,7 +32,7 @@ button, input[type=text], input[type=password] {
     font-size: 1.2em;
 }
 header {
-    font-size: .7em;
+    font-size: .8em;
     display: flex;
     /* max-width: 140em; */
     margin: 0 auto;
@@ -165,19 +165,20 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 footer {
-    display: none;
+    /* display: none; */
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #353533;
+    background: #3a3d3a;
     color: #fff;
     font-size: .6em;
-    padding: .2em;
+    padding: .4em;
     
 }
 footer h2 {
     max-width: 1024px;
     margin: 0 auto;
+    font-weight: 400;
 }
 
 .logbox a {
@@ -239,10 +240,10 @@ footer h2 {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    max-width: 60em;
+    max-width: 70em;
     width: 100% !important;
-    /* box-shadow: 0 .4em 2em #0404041a; */
-    border-radius: .2em;
+    box-shadow: 0 .4em 2em #0404040a;
+    border-radius: .5em;
     overflow: hidden;
 }
 .grid .logbox {
@@ -256,7 +257,7 @@ footer h2 {
     background-repeat: no-repeat;
     position: relative;
     background-position: center;
-    transition: all 300ms ease-out;
+    transition: all 178ms ease-in-out;
 }
 .overlay {
     position: absolute;
@@ -264,10 +265,17 @@ footer h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffffff4f;
+    background: #FD520000;
     transition: all 178ms ease-in-out;
     z-index: 0;
-    /* opacity: .5; */
+    opacity: .75;
+}
+
+.description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hotel_desc {
@@ -278,7 +286,7 @@ footer h2 {
     color: #fff;
     text-align: center;
     z-index: 10;
-    /* box-shadow: 0 .2em 1em #0404042a; */
+    /* box-shadow: 0 .2em .3em .1em #0404041a; */
     width: fit-content;
     margin: 0 auto;
     border-bottom-left-radius: .5em;
@@ -290,8 +298,8 @@ footer h2 {
 }
 
 #hotel_image:hover .overlay {
-    background: #ffffff00;
-    /* opacity: 1; */
+    background: #FD5200cc;
+    opacity: 1;
 }
 select, input[type="date"] {
     outline: 1px solid #FD520000;
@@ -305,6 +313,10 @@ select:focus, input[type="date"]:focus {
 
 .hidden {
     display: none;
+}
+.stars {
+    color: #fff;
+    font-size: 4em;
 }
 /* LOADER */
 
@@ -396,6 +408,6 @@ select:focus, input[type="date"]:focus {
         margin: 0;
       }
       main {
-        padding-top: 2em;
+        padding-top: 4em;
       }
   }

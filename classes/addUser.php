@@ -7,7 +7,7 @@
 
     // CREATE TABLE OF USERS
     function __construct($conn) {
-      $sql_create_table = "CREATE TABLE IF NOT EXISTS users(
+      $sql_create_table = "CREATE TABLE IF NOT EXISTS tbl_users(
         id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(32) NOT NULL,
         email VARCHAR(64) NOT NULL,
@@ -19,7 +19,7 @@
     // CHECK IF USER EXISTS
     function checkUser($conn) {
       $email = $_POST['email'];
-      $sql_check_user = "SELECT * FROM users WHERE email = '$email'";
+      $sql_check_user = "SELECT * FROM tbl_users WHERE email = '$email'";
       $check_user = $conn->query($sql_check_user);
       $user_row = $check_user->fetch_array(MYSQLI_ASSOC); 
       if ($user_row['email'] === $email) {
@@ -71,10 +71,11 @@
           $name = $_POST['name'];
           $email = $_POST['email'];
           $password = $_POST['pw'];
-          $sql_new_user = "INSERT INTO users(name, email, password) VALUES ('$name', '$email', '$password')";
+          $sql_new_user = "INSERT INTO tbl_users(name, email, password) VALUES ('$name', '$email', '$password')";
           if (!$conn->query($sql_new_user)) {
             echo "error: " . $conn->error;
           } else {
+            $_SESSION['reg_user'] = $email;
             header("Location: reg_success.php");
             die();
 

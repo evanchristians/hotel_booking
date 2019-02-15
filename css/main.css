@@ -265,10 +265,10 @@ footer h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #4b4b4bdd;
+    background: #4b4b4bca;
     transition: all 178ms ease-in-out;
     z-index: 0;
-    opacity: .6;
+    opacity: 1;
 }
 
 .description {

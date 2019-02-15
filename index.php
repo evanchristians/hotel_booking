@@ -56,7 +56,7 @@
 		</div>
 	</main>
 	<footer>
-		<h2>copyright &copy EVAN CHRISTIANS 2018</h2>
+		<h2>copyright &copy EVAN CHRISTIANS <?php echo date("Y") ?></h2>
 	</footer>
 	<script>
 		$(document).ready(function() {

@@ -93,15 +93,15 @@
         $difference = $date_in_obj->diff($date_out_obj)->format("%d");
         if($conn->query($sql_show_booking)) {
           ?>
-            Booking for: <?php echo $this->email ?> <br>
+            Booking for: <?php echo $this->user . " (" . $this->email . ")" ?> <br>
             At : <?php echo $hotel_name ?> <br>
-            from: <?php echo $this->date_in ?> to: <?php echo $this->date_out ?> <br>
             for: <?php if($difference == 1) {
-              echo $difference . " day"; 
+              echo $difference . " day";  
             } else {
               echo $difference . " days";
             }
-          ?>
+            ?><br>
+            from: <?php echo $date_in_obj->format("l, d F Y") ?> to: <?php echo $date_out_obj->format("l, d F Y") ?> <br>
           <?php
         } else {
           echo "ERROR: " . $conn->error;

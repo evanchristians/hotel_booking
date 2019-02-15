@@ -9,13 +9,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-    height: auto;
     padding: 0;
     margin: 0 auto;
     font-family: 'KoHo', sans-serif;
     font-size: 12pt;
-    color: #141414;
+    color: #2d2d2d;
     position: relative;
+    text-align: center;
 }
 
 button, input[type=text], input[type=password] {
@@ -38,7 +38,7 @@ header {
     margin: 0 auto;
     width: 100%;
     align-items: center;
-    color: #010101;
+    color: #2d2d2d;
     padding: .4em 3em;
 }
 
@@ -76,13 +76,11 @@ h1 {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    display: block;
     max-width: 80em;
     margin: 0 auto;
-    text-align: center;
-    padding: 6em 0;
+    padding: 8em 0;
 }
 
 .logbox {
@@ -148,7 +146,7 @@ input[type=text], input[type=password], input[type=date], select {
     padding: .5em 1em;
     background: none;
     border: none;
-    color: #000;
+    color: #2d2d2d;
     transition: all 200ms ease-out;
 
 }
@@ -161,15 +159,16 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 ::placeholder {
-    color: #01010188;
+    color: #2d2d2d88;
 }
 
 footer {
     /* display: none; */
+    margin-top: 3em;
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #3a3d3a;
+    background: #4a4d4a;
     color: #fff;
     font-size: .6em;
     padding: .4em;
@@ -240,7 +239,8 @@ footer h2 {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    max-width: 70em;
+    max-width: 60em;
+    margin: 0 auto;
     width: 100% !important;
     box-shadow: 0 .4em 2em #0404040a;
     border-radius: .5em;
@@ -265,10 +265,10 @@ footer h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FD520000;
+    background: #4b4b4bdd;
     transition: all 178ms ease-in-out;
     z-index: 0;
-    opacity: .75;
+    opacity: .6;
 }
 
 .description {
@@ -281,7 +281,7 @@ footer h2 {
 .hotel_desc {
     font-size: .7em;
     position: relative;
-    background: #FD5200;
+    background: #FD5200dd;
     padding: .618em 1.4em;
     color: #fff;
     text-align: center;
@@ -298,12 +298,13 @@ footer h2 {
 }
 
 #hotel_image:hover .overlay {
-    background: #FD5200cc;
+    background: #4d4d4def;
     opacity: 1;
 }
+
 select, input[type="date"] {
     outline: 1px solid #FD520000;
-    transition: all 178ms ease-out;
+    transition: all 158ms ease-out;
     outline-offset: -3px;
 
 }
@@ -316,7 +317,18 @@ select:focus, input[type="date"]:focus {
 }
 .stars {
     color: #fff;
-    font-size: 4em;
+    font-size: 1.4em;
+    white-space: nowrap;
+}
+.stars .fas, .stars .far {
+    color: #fff;
+    margin: 0 .05em;
+}
+
+.hotel_blurb {
+    color: #fff;
+    margin: 2em auto;
+
 }
 /* LOADER */
 

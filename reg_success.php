@@ -23,12 +23,14 @@
     <h2>copyright &copy EVAN CHRISTIANS <?php echo date("Y") ?></h2>
   </footer>
   <script>
+		$(document).ready(function() {
+			window.console&&console.log("working");
+			$('main').fadeIn(400).removeClass('hidden');
+		});
     window.onload = setTimeout(function () {
+      $("main").fadeOut(400).addClass('hidden');
       window.location.href = "index.php";
     }, 2000);
-    $(window).bind("unload", function(e){
-        $("main").fadeOut(1000).addClass('hidden');
-    });
   </script>
 </body>
 </html>

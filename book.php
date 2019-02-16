@@ -144,7 +144,7 @@
     });
 
     $("button").click(function(){
-        $("main").fadeOut(1000).addClass('hidden');
+        $("main").fadeOut(400).addClass('hidden');
     });
 
     $( "select" ).change(function() {

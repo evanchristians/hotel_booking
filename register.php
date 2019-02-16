@@ -73,7 +73,7 @@
 			window.console&&console.log("working");
 			$('main').fadeIn(400).removeClass('hidden');
 		});
-		$(window).unload(function(){
+    $("button").click(function(){
         $("main").fadeOut(400).addClass('hidden');
     });
 	</script>

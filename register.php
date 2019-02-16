@@ -49,7 +49,7 @@
 						<i class="fas fa-lock"></i>
 						<input type="password" name="pw" placeholder="password" required>
 
-					</div>
+					</div> 
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
@@ -70,7 +70,7 @@
 	<script>
 		$(document).ready(function() {
 			window.console&&console.log("working");
-			$('main').fadeIn(300).removeClass('hidden');
+			$('main').fadeIn(500).removeClass('hidden');
 		});
     $("button").click(function(){
         $("main").fadeOut(300).addClass('hidden');

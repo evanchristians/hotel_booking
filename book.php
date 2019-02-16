@@ -139,7 +139,7 @@
 
     $(document).ready(function() {
       window.console&&console.log("working");
-      $('main').fadeIn(300).removeClass('hidden');
+      $('main').fadeIn(500).removeClass('hidden');
     });
 
     $("button").click(function(){

@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #fff, #FD520002); 
+    background: #fdfdfd; 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -170,7 +170,7 @@ footer {
     color: #fff;
     font-size: .6em;
     padding: .4em;
-    box-shadow: 0 -.1em .2em #0404040a;
+    box-shadow: 0 -.1em .2em #0404042a;
     
 }
 footer h2 {
@@ -191,13 +191,14 @@ footer h2 {
 }
 
 .error .fas {
-    position: absolute;;
+    position: absolute;
     top: 50%;
-    left: .5em;
     transform: translateY(-50%);
+    left: .5em;
 }
 .fas, .far {
     color: #FD5200;
+    margin-right: .5em;
 }
 .redir {
     text-align: center;
@@ -241,13 +242,12 @@ footer h2 {
     max-width: 60em;
     margin: 0 auto;
     width: 100% !important;
-    box-shadow: 0 .1em .1em #0404040a;
-    border-radius: .5em;
     overflow: hidden;
+    box-shadow: 0 .5em 2em #04040406;
 }
 .grid .logbox {
     max-width: 100%;
-    background: #ffffffdf;
+    background: #fff;
 }
 #hotel_image {
     position: relative;
@@ -299,7 +299,10 @@ footer h2 {
     background: #4d4d4def;
     opacity: 1;
 }
-
+#hotel_image:hover .stars {
+    transform: scale(1.05);
+    opacity: 1;
+}
 select, input[type="date"] {
     outline: 1px solid #FD520000;
     transition: all 158ms ease-out;
@@ -317,6 +320,8 @@ select:focus, input[type="date"]:focus {
     color: #fff;
     font-size: 1.4em;
     white-space: nowrap;
+    transition: all 178ms cubic-bezier(.46,.29,.41,1);
+    opacity: .6;
 }
 .stars .fas, .stars .far {
     color: #fff;

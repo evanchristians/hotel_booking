@@ -13,6 +13,19 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(window).on("load", function() {
+      $('main').fadeIn(178).removeClass('hidden');
+
+      $("button").click(function(){
+        $("main").fadeOut(178).addClass('hidden');
+      });
+
+      $("a").click(function(){
+        $("main").fadeOut(178).addClass('hidden');
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -54,18 +67,5 @@
   <footer>
     <h2>copyright &copy EVAN CHRISTIANS <?php echo date("Y") ?></h2>
   </footer>
-  <script>
-    $(window).on("load", function() {
-      $('main').fadeIn(178).removeClass('hidden');
-
-      $("button").click(function(){
-        $("main").fadeOut(178).addClass('hidden');
-      });
-
-      $("a").click(function(){
-        $("main").fadeOut(178).addClass('hidden');
-      });
-    });
-  </script>
 </body>
 </html>

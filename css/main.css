@@ -56,18 +56,20 @@ header h3 {
 }
 
 header h2 {
-    color: #FD5200;
     width: 100%;
     margin: .5em;
     display: flex;
     justify-content: flex-start;
 }
 
+
 h1 {
     font-size: 5em;
     color: #FD5200;
 }
-
+h2  {
+    color: #FD5200;
+}
 .cap {
     margin: 0;
     font-weight: 800;
@@ -92,8 +94,6 @@ main {
 }
 .logbox h2 {
     margin: 1.25em auto;
-    color: #FD5200;
-
 }
 .inputs {
     padding: .75em;
@@ -133,6 +133,9 @@ button {
     cursor: pointer;
 
 }
+button .fas {
+    color: #fff;
+}
 
 button:focus {
     outline: none;
@@ -168,12 +171,12 @@ footer {
     bottom: 0;
     width: 100%;
     background: #4a4d4a;
-    color: #fff;
     font-size: .6em;
     padding: .4em;
     
 }
 footer h2 {
+    color: #fff;
     max-width: 1024px;
     margin: 0 auto;
     font-weight: 400;
@@ -204,9 +207,6 @@ footer h2 {
     text-align: center;
 }
 
-.redir h2 {
-    color: #FD5200;
-}
 
 .cta {
     font-size: .8em;
@@ -283,7 +283,6 @@ footer h2 {
     position: relative;
     background: #FD5200dd;
     padding: .618em 1.4em;
-    color: #fff;
     text-align: center;
     z-index: 10;
     width: fit-content;
@@ -292,6 +291,7 @@ footer h2 {
     border-bottom-right-radius: .5em;
 }
 .hotel_desc h2 {
+    color: #fff;
     margin: 0;
     font-weight: 400;
 }
@@ -333,24 +333,29 @@ select:focus, input[type="date"]:focus {
     margin: 2em auto;
 
 }
-.no_shadow {
+.conf_grid {
     box-shadow: none !important;
+    max-width: 50em; 
+    grid-template-columns: 1fr 3fr !important;
+    padding: 2em;
 }
 .conf_title {
-    background: #FD5200;
+    background: #4b4b4baa;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
     color: #fff;
-    padding: .2em 1em;
+    padding: .5em 1em;
     white-space: nowrap;
     text-align: left;
 }
 .conf_data {
-    background: #4a4d4add;
-    color: #fff;
-    padding: .2em 1em;
+    background: #f8f8f8;
+    color: #FD5200;
+    border-left: none;
+    padding: .5em 1em;
     white-space: nowrap;
     text-align: left;
+    border-right: .5em solid #FD5200;
 }
 /* LOADER */
 
@@ -426,7 +431,7 @@ select:focus, input[type="date"]:focus {
       }
       header h3 {
         justify-content: center;
-        margin: 0;
+        margin-bottom: 1em !important;
       }
       main {
         padding-top: 4em;

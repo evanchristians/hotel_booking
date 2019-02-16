@@ -7,6 +7,11 @@
   <title>Success</title>
   <link rel="stylesheet" href="css/main.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function() {
+			$('main').fadeIn(500).removeClass('hidden');
+		});
+	</script>
 </head>
 <body>
   <header>
@@ -23,10 +28,6 @@
     <h2>copyright &copy EVAN CHRISTIANS <?php echo date("Y") ?></h2>
   </footer>
   <script>
-		$(document).ready(function() {
-			window.console&&console.log("working");
-			$('main').fadeIn(500).removeClass('hidden');
-		});
     window.onload = setTimeout(function () {
       $("main").fadeOut(300).addClass('hidden');
       window.location.href = "index.php";

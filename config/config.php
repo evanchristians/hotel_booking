@@ -16,10 +16,10 @@
 // PRODUCTION ENV
 
 if ($cleardb_url = parse_url(getenv("mysql://bfdd1a56855e29:1dc6a049@us-cdbr-iron-east-03.cleardb.net/heroku_a262583a747ea80?reconnect=true"))) {
-  $cleardb_server   = $cleardb_url["host"];
-  $cleardb_username = $cleardb_url["user"];
-  $cleardb_password = $cleardb_url["pass"];
-  $cleardb_db       = substr($cleardb_url["path"],1);
+  $cleardb_server   = "us-cdbr-iron-east-03.cleardb.net";
+  $cleardb_username = "bfdd1a56855e29";
+  $cleardb_password = "1dc6a049";
+  $cleardb_db       = "heroku_a262583a747ea80";
 }
 
 $active_group = 'default';
@@ -34,7 +34,7 @@ $db['default'] = array(
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
-    'db_debug' => (ENVIRONMENT !== 'production'),
+    // 'db_debug' => (ENVIRONMENT !== 'production'),
     'cache_on' => FALSE,
     'cachedir' => '',
     'char_set' => 'utf8',

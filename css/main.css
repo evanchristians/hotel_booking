@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #f4f4f4, #d4d4d4), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #fff, #efefef), url('../assets/bg.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -163,7 +163,6 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 footer {
-    /* display: none; */
     margin-top: 3em;
     position: absolute;
     bottom: 0;
@@ -172,6 +171,7 @@ footer {
     color: #fff;
     font-size: .6em;
     padding: .4em;
+    box-shadow: 0 -.1em .2em #0404040a;
     
 }
 footer h2 {
@@ -242,7 +242,7 @@ footer h2 {
     max-width: 60em;
     margin: 0 auto;
     width: 100% !important;
-    box-shadow: 0 .4em 2em #0404040a;
+    box-shadow: 0 .1em .1em #0404040a;
     border-radius: .5em;
     overflow: hidden;
 }

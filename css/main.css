@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #fff, #efefef), url('../assets/bg.jpg'); 
+    background: linear-gradient(to bottom, #fff, #FD520002); 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;

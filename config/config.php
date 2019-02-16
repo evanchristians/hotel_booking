@@ -15,7 +15,7 @@
 
 // PRODUCTION ENV
 
-if ($cleardb_url = parse_url(getenv("mysql://b6472c1dbcc883:a795c185@us-cdbr-iron-east-03.cleardb.net/heroku_c599208452ef4b6?reconnect=true"))) {
+if ($cleardb_url = parse_url(getenv("mysql://bfdd1a56855e29:1dc6a049@us-cdbr-iron-east-03.cleardb.net/heroku_a262583a747ea80?reconnect=true"))) {
   $cleardb_server   = $cleardb_url["host"];
   $cleardb_username = $cleardb_url["user"];
   $cleardb_password = $cleardb_url["pass"];

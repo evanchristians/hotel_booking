@@ -15,7 +15,7 @@
   <main class="redir hidden" id="redir">
     <section>
       <h2>Account created successfully</h2>
-      <div class="lds-ripple"><div></div><div></div></div>
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       <p>Redirecting..</p>
     </section>
   </main>

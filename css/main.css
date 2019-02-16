@@ -171,7 +171,6 @@ footer {
     color: #fff;
     font-size: .6em;
     padding: .4em;
-    box-shadow: 0 -.1em .2em #0404042a;
     
 }
 footer h2 {
@@ -256,9 +255,9 @@ footer h2 {
     background-image: url('../assets/lsb.jpg');
     background-size: cover !important;
     background-repeat: no-repeat;
-    position: relative;
     background-position: center;
     transition: all 178ms ease-in-out;
+    min-height: 35em;
 }
 .overlay {
     position: absolute;
@@ -302,7 +301,6 @@ footer h2 {
     opacity: 1;
 }
 #hotel_image:hover .stars {
-    transform: scale(1.01);
     opacity: 1;
 }
 select, input[type="date"] {
@@ -392,6 +390,9 @@ select:focus, input[type="date"]:focus {
   /* RESPONSIVE */
 
   @media(max-width: 800px) {
+      main {
+          padding-bottom: 0;
+      }
       .grid {
           grid-template-columns: 1fr;
           box-shadow: none;
@@ -399,11 +400,18 @@ select:focus, input[type="date"]:focus {
       .grid .logbox {
           background: none;
       }
+      .overlay {
+        background: #4d4d4def;
+        opacity: 1;
+      }
+      .stars {
+          opacity: 1;
+      }
   }
 
   @media(max-width: 640px) {
       body {
-        font-size: 11px;
+        font-size: 12px;
       }
       header {
         display: block;

@@ -67,7 +67,7 @@
     $makeBooking = new makeBooking($conn);
     ?>
     <form action="index.php" method="post">
-      <h3>
+      <h3 id="logged_user">
         Logged in as&nbsp<span class="cap"><?php echo $_SESSION['user']; ?></span>&nbsp|&nbsp<button class="link" type="submit" name="logout">Sign out</button>
       </h3>
     </form>

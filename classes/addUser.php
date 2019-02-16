@@ -18,25 +18,43 @@
 
     // CHECK IF USER EXISTS
     function checkUser($conn) {
-      $email = $_POST['email'];
-      $sql_check_user = "SELECT * FROM tbl_users WHERE email = '$email'";
-      $check_user = $conn->query($sql_check_user);
-      $user_row = $check_user->fetch_array(MYSQLI_ASSOC); 
-      if ($user_row['email'] === $email) {
-          $this->no_user = false;
+      if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+        $sql_check_user = "SELECT * FROM tbl_users WHERE email = '$email'";
+        $check_user = $conn->query($sql_check_user);
+        $user_row = $check_user->fetch_array(MYSQLI_ASSOC); 
+        if ($user_row['email'] === $email) {
+            $this->no_user = false;
+          ?>
+            <div class="error">
+              <i class="fas fa-exclamation-circle"></i>
+              User already exists
+            </div>
+          <?php
+          return $this->no_user;
+        }
+      } else {
         ?>
-          <div class="error">
-            <i class="fas fa-exclamation-circle"></i>
-            User already exists
-          </div>
-        <?php
-        return $this->no_user;
+        <div class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          Please enter an email address
+        </div>
+      <?php
       }
     }
 
     // PASSWORD VALIDATION
     function passValidation() {
-      if ($_POST["pw"] !== $_POST["c_pw"]) {
+      if (empty($_POST["pw"])) {
+        $this->pass_auth = false;
+        ?>
+        <div class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          Please enter a password
+        </div>
+        <?php
+        return $this->pass_auth;
+      } else if ($_POST["pw"] !== $_POST["c_pw"]) {
         $this->pass_auth = false;
         ?>
           <div class="error">
@@ -46,23 +64,30 @@
         <?php
         return $this->pass_auth;
       }
-
     }
     
     // EMAIL VALIDATION
     function emailValidation() {
-      if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+      if (empty($_POST['email'])) {
+        $this->email_auth = false;
+        ?>
+        <div class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          Please enter an email address
+        </div>
+        <?php
+        return $this->email_auth;
+      }
+      else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $this->email_auth = false;
         ?>
           <div class="error">
             <i class="fas fa-exclamation-circle"></i>
-            Enter a valid email address
+            Please enter a valid email address
           </div>
         <?php
         return $this->email_auth;
       }
-
-
     }
 
     // CONFIRM NEW USER

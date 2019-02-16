@@ -35,25 +35,25 @@
 					<div class="field">
 
 						<i class="fas fa-user"></i>
-						<input type="text" name="name" placeholder="name" value="<?php if(isset($_POST['register'])){ echo $_POST['name']; } ?>" autocomplete="off" required> 
+						<input type="text" name="name" placeholder="name" value="<?php if(isset($_POST['register'])){ echo $_POST['name']; } ?>" autocomplete="off" > 
 
 					</div>
 					<div class="field">
 
 						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" required> 
+						<input type="text" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" > 
 
 					</div>
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
-						<input type="password" name="pw" placeholder="password" required>
+						<input type="password" name="pw" placeholder="password">
 
 					</div> 
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
-						<input type="password" name="c_pw" placeholder="confirm password" required>
+						<input type="password" name="c_pw" placeholder="confirm password">
 
 					</div>
 					<button type="submit" name="register">Sign up</button>

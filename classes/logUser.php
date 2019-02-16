@@ -1,6 +1,7 @@
 <?php
   class logUser {
     public $email_check = false;
+    public $pass_check = false;
     public $user_result;
     public $user_row;
     public $email;
@@ -22,7 +23,14 @@
       $sql_check_email = "SELECT * FROM tbl_users WHERE email = '$this->email'";
       $this->user_result = $conn->query($sql_check_email);
       $this->user_row = $this->user_result->fetch_array(MYSQLI_ASSOC);
-      if (!$this->user_row) {
+      if (empty($_POST['email'])) {
+        ?>
+        <div class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          Please enter an email address
+        </div>
+        <?php
+      } else if (!$this->user_row) {
         ?>
           <div class="error">
             <i class="fas fa-exclamation-circle"></i>
@@ -36,9 +44,22 @@
       return $this->user_row;
     }
 
+    // CHECK IF PASSWORD WAS INPUT 
+    function checkPass() {
+      if (empty($_POST["pw"])) {
+        ?>
+        <div class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          Please enter your password
+        </div>
+        <?php
+      } else {
+        $this->pass_check = true;
+      }
+    }
     // CHECK IF CREDENTIALS MATCH
     function checkCred() {
-      if ($this->email_check) {
+      if ($this->email_check && $this->pass_check) {
         $password = $_POST['pw'];
         if ($this->user_row['password'] == $password) {
           header("Location: book.php");

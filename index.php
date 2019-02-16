@@ -27,6 +27,7 @@
 				if (isset($_POST['login'])) {
 					$logUser = new logUser($conn);
 					$logUser->checkUser($conn);
+					$logUser->checkPass();
 					$logUser->checkCred();
 				}
 			?>
@@ -36,13 +37,13 @@
 					<div class="field">
 
 						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" value="<?php if(isset($_POST['login'])){ echo $_POST['email'];}else if(isset($_SESSION['reg_user'])){echo $_SESSION['reg_user'];} ?>" placeholder="you@example.com" autocomplete="off" required> 
+						<input type="text" name="email" value="<?php if(isset($_POST['login'])){ echo $_POST['email'];}else if(isset($_SESSION['reg_user'])){echo $_SESSION['reg_user'];} ?>" placeholder="you@example.com" autocomplete="off"> 
 
 					</div>
 					<div class="field">
 
 						<i class="fas fa-lock"></i>
-						<input type="password" name="pw" placeholder="password" required>
+						<input type="password" name="pw" placeholder="password" value="">
 
 					</div>
 					<button type="submit" name="login" id="login">Sign in</button>

@@ -25,10 +25,10 @@
   <script>
 		$(document).ready(function() {
 			window.console&&console.log("working");
-			$('main').fadeIn(400).removeClass('hidden');
+			$('main').fadeIn(300).removeClass('hidden');
 		});
     window.onload = setTimeout(function () {
-      $("main").fadeOut(400).addClass('hidden');
+      $("main").fadeOut(300).addClass('hidden');
       window.location.href = "index.php";
     }, 2000);
   </script>

@@ -12,7 +12,6 @@
 	<title>Register</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -71,10 +70,13 @@
 	<script>
 		$(document).ready(function() {
 			window.console&&console.log("working");
-			$('main').fadeIn(400).removeClass('hidden');
+			$('main').fadeIn(300).removeClass('hidden');
 		});
     $("button").click(function(){
-        $("main").fadeOut(400).addClass('hidden');
+        $("main").fadeOut(300).addClass('hidden');
+    });
+    $("a").click(function(){
+        $("main").fadeOut(300).addClass('hidden');
     });
 	</script>
 </body>

@@ -12,7 +12,6 @@
   <title>Make a booking</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -140,11 +139,14 @@
 
     $(document).ready(function() {
       window.console&&console.log("working");
-      $('main').fadeIn(400).removeClass('hidden');
+      $('main').fadeIn(300).removeClass('hidden');
     });
 
     $("button").click(function(){
-        $("main").fadeOut(400).addClass('hidden');
+        $("main").fadeOut(300).addClass('hidden');
+    });
+    $("a").click(function(){
+        $("main").fadeOut(300).addClass('hidden');
     });
 
     $( "select" ).change(function() {
@@ -158,17 +160,19 @@
         $( "#hotel_name" ).text("Long Street Backpackers");
         $( "#hotel_blurb" ).text("Long Street Backpackers is an old school, communal, traveller’s hostel in the heart of Cape Town. Here, we’re all about new friends, spontaneity and laid-back fun. It is centrally located in Cape Town’s City Bowl, making it the perfect home base while you explore the Mother City.");
         $( "#stars" ).html(star + star + starO + starO + starO);
-        // $( "#stars").prependTo()
+
       } else if(sel.val() === "dlla") {
         $( "#hotel_image" ).css("background-image", "url('assets/dlla.jpg')");
         $( "#hotel_name" ).text("Daddy Long Legs Art Hotel & Self-Catering Apartments");
         $( "#hotel_blurb" ).text("As an independent travellers’ hotel, Daddy Long Legs will appeal to those seeking an authentic experience of Cape Town. It is a place to meet others and is ideally situated for exploring the character and nightlife of the city and its surrounds.");
         $( "#stars" ).html(star + star + star + starO + starO);
+
       } else if(sel.val() === "ttb") {
         $( "#hotel_image" ).css("background-image", "url('assets/ttb.jpg')");         
         $( "#hotel_name" ).text("The Table Bay Hotel");
         $( "#hotel_blurb" ).text("The Table Bay offers the ultimate in 5-star luxury hotel accommodation in Cape Town. Considered to be the best address in Cape Town, this sophisticated Sun International property was opened in May 1997 by former South African president, Nelson Mandela. As part of the Sunlux Collection, The Table Bay continues to set its own standards in international service, cuisine and luxury.");
         $( "#stars" ).html(star + star + star + star + star);
+        
       } else if(sel.val() === "dth") {   
         $( "#hotel_image" ).css("background-image", "url('assets/dth.jpg')");   
         $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");

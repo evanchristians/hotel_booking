@@ -2,6 +2,9 @@
 	include_once('classes/logUser.php');
 	include_once('config/config.php');
 	session_start();
+		if (isset($_POST['logout'])) {
+		session_destroy();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +15,7 @@
 	<title>Sign in</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-	<script>
-		$(document).ready(function() {
-			$('main').fadeIn(500).removeClass('hidden');
-		});
-	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
@@ -30,9 +28,6 @@
 					$logUser = new logUser($conn);
 					$logUser->checkUser($conn);
 					$logUser->checkCred();
-				}
-				if (isset($_POST['logout'])) {
-					session_destroy();
 				}
 			?>
 			<h2>Sign in</h2>
@@ -63,12 +58,17 @@
 		<h2>copyright &copy EVAN CHRISTIANS <?php echo date("Y") ?></h2>
 	</footer>
 	<script>
-    $("button").click(function(){
-        $("main").fadeOut(300).addClass('hidden');
-    });
-    $("a").click(function(){
-        $("main").fadeOut(300).addClass('hidden');
-    });
+		$(window).on("load", function() {
+			$('main').fadeIn(178).removeClass('hidden');
+
+			$("button").click(function(){
+				$("main").fadeOut(178).addClass('hidden');
+			});
+
+			$("a").click(function(){
+				$("main").fadeOut(178).addClass('hidden');
+			});
+		});
 	</script>
 </body>
 </html>

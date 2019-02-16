@@ -93,15 +93,33 @@
         $difference = $date_in_obj->diff($date_out_obj)->format("%d");
         if($conn->query($sql_show_booking)) {
           ?>
-            Booking for: <?php echo $this->user . " (" . $this->email . ")" ?> <br>
-            At : <?php echo $hotel_name ?> <br>
-            for: <?php if($difference == 1) {
-              echo $difference . " day";  
-            } else {
-              echo $difference . " days";
-            }
-            ?><br>
-            from: <?php echo $date_in_obj->format("l, d F Y") ?> to: <?php echo $date_out_obj->format("l, d F Y") ?> <br>
+          <div class="grid no_shadow" style="max-width: 50em; grid-template-columns: 1fr 3fr">
+            <span class="conf_title">Guest</span>
+            <span class="conf_data">
+              <?php echo $this->user . " (" . $this->email . ")" ?>
+            </span>
+            <span class="conf_title">Hotel</span>
+            <span class="conf_data">
+              <?php echo $hotel_name ?>
+            </span>
+            <span class="conf_title">Length of Stay</span>
+            <span class="conf_data">
+              <?php if($difference == 1) {
+                echo $difference . " day";  
+              } else {
+                echo $difference . " days";
+              }
+              ?>
+            </span>
+            <span class="conf_title">Check-in</span>
+            <span class="conf_data">
+              <?php echo $date_in_obj->format("l, d F Y") ?>
+            </span>
+            <span class="conf_title">Check-out</span>
+            <span class="conf_data">
+              <?php echo $date_out_obj->format("l, d F Y") ?>
+            </span>
+          </div>
           <?php
         } else {
           echo "ERROR: " . $conn->error;

@@ -41,7 +41,6 @@
       if ($this->email_check) {
         $password = $_POST['pw'];
         if ($this->user_row['password'] == $password) {
-          echo "user: " . $this->user_row['name'] . " logged in successfully";
           header("Location: book.php");
           $_SESSION['user'] = $this->user_row['name'];
           $_SESSION['email'] = $this->user_row['email'];

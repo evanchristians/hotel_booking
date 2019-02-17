@@ -7,6 +7,8 @@
     public $hotel;
     public $guests;
     public $rooms;
+    public $booking_id;
+    public $submit_id;
 
     // CREATE TABLE FOR BOOKINGS AND HOTELS
     function __construct($conn) {
@@ -14,7 +16,7 @@
 
       // BOOKINGS
       $sql_tbl_booking = "CREATE TABLE IF NOT EXISTS tbl_bookings (
-        id INT(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        id INT(16) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         time_created TIMESTAMP NOT NULL,
         guest VARCHAR(100) NOT NULL,
         guest_name VARCHAR(100) NOT NULL,
@@ -79,14 +81,24 @@
         $this->hotel = $_SESSION['hotel'];
         $this->guests = $_SESSION['guests'];
         $this->rooms = $_SESSION['rooms'];
-        $sql_booking_insert = "INSERT INTO tbl_bookings(guest, guest_name, date_in, date_out, hotel_code, num_guests, num_rooms) 
-                              VALUES('$this->email', '$this->user', '$this->date_in', '$this->date_out', '$this->hotel', '$this->guests', '$this->rooms')";
-        if(!$conn->query($sql_booking_insert)) {
-          echo "error " . $conn->error;
+        $sql_get_booking = "SELECT * FROM tbl_bookings WHERE 
+        (guest = '$this->email' &&
+        date_in = '$this->date_in' &&
+        date_out = '$this->date_out' &&
+        hotel_code = '$this->hotel' &&
+        num_guests = '$this->guests' &&
+        num_rooms = '$this->rooms')";
+        if (empty($conn->query($sql_get_booking)->fetch_array(MYSQLI_ASSOC))) {
+          $sql_booking_insert = "INSERT INTO tbl_bookings(guest, guest_name, date_in, date_out, hotel_code, num_guests, num_rooms) 
+                                VALUES('$this->email', '$this->user', '$this->date_in', '$this->date_out', '$this->hotel', '$this->guests', '$this->rooms')";
+          if(!$conn->query($sql_booking_insert)) {
+            // echo "error " . $conn->error;
+          } else {
+            header("Location: conf_booking.php");
+          }
         } else {
-          header("Location: conf_booking.php");
-          // $this->showBooking($conn);
-        };
+          header("Location: double.php");
+        }
       }
     }
 
@@ -99,23 +111,34 @@
       $this->hotel = $_SESSION['hotel'];
       $this->guests = $_SESSION['guests'];
       $this->rooms = $_SESSION['rooms'];
-      $sql_show_booking = "SELECT * FROM  tbl_bookings WHERE guest = '$this->email'";
+
       $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = '$this->hotel'";
       $get_hotel = $conn->query($sql_get_hotel);
-      $get_booking = $conn->query($sql_show_booking);
       $hotel_row = $get_hotel->fetch_array(MYSQLI_ASSOC);
-      $booking_row = $get_booking->fetch_array(MYSQLI_ASSOC);
       $hotel_name = $hotel_row['hotel_name'];
-      $booking_id = $booking_row['id'];
+
+      $sql_get_booking = "SELECT * FROM tbl_bookings WHERE 
+      (guest = '$this->email' &&
+      date_in = '$this->date_in' &&
+      date_out = '$this->date_out' &&
+      hotel_code = '$this->hotel' &&
+      num_guests = '$this->guests' &&
+      num_rooms = '$this->rooms')";
+
+      $get_booking = $conn->query($sql_get_booking);
+      $booking_row = $get_booking->fetch_array(MYSQLI_ASSOC);
+      $this->booking_id = $booking_row['id'];
+      
+      $_SESSION['booking_id'] = $this->booking_id;
       $date_in_obj = new DateTime($this->date_in);
       $date_out_obj = new DateTime($this->date_out);
       $difference = $date_in_obj->diff($date_out_obj)->format("%d");
-      if($conn->query($sql_show_booking)) {
+      if($get_booking) {
         ?>
         <div class="grid conf_grid">
           <span class="conf_title">ID</span>
           <span class="conf_data">
-            <?php echo "#".$booking_id ?>
+            <?php echo "#".$this->booking_id ?>
           </span>
           <span class="conf_title">Booking for</span>
           <span class="conf_data">
@@ -151,7 +174,7 @@
             <?php echo $date_out_obj->format("l, d F Y") ?>
           </span>
           <span class="hidden">
-            <input type="text" value="<?php echo $booking_id ?>" name="booking_id">
+            <input type="text" value="<?php echo $this->booking_id ?>" name="booking_id">
           </span>
         </div>
         <button type="submit" name="confirm_booking">
@@ -174,8 +197,9 @@
 
     // HANDLE BOOKING CONFIRMATION 
     function handleBooking($conn) {
+
       if(isset($_POST['booking_id'])) {
-        $submit_id = $_SESSION['booking_id'] = $_POST['booking_id'];
+        $this->submit_id = $_POST['submit_id'];
 
       }
       if(isset($_POST['edit_booking'])) {
@@ -184,26 +208,25 @@
       if(isset($_POST['cancel_booking'])) {
         $_SESSION['cancel_booking'] = $_POST['cancel_booking'];
       }
+
       // confirm booking 
       if (isset($_POST['confirm_booking'])) {
-        $sql_booking_confirm = "UPDATE tbl_bookings SET confirm_booking = '1' WHERE id = '$submit_id'";
+        $sql_booking_confirm = "UPDATE tbl_bookings SET confirm_booking = '1' WHERE id = '$this->submit_id'";
         if(!$conn->query($sql_booking_confirm)) {
           // echo "ERROR: " . $conn->error;
         } else {
+          unset($_SESSION['booking_id']);
           header("Location: confirmed.php");
         }
       }
       
       // cancel booking 
       if (isset($_SESSION['cancel_booking'])) {
-        $sql_booking_cancel = "DELETE FROM tbl_bookings WHERE id = '$submit_id'";
+        $sql_booking_cancel = "DELETE FROM tbl_bookings WHERE id = '$this->submit_id'";
         if(!$conn->query($sql_booking_cancel)) {
           // echo "ERROR: " . $conn->error;
         } else {
-          // unset($_SESSION['date_in']);
-          // unset($_SESSION['date_out']);
-          // unset($_SESSION['hotel']);
-          // unset($_SESSION['guests']);
+          unset($_SESSION['booking_id']);
           unset($_SESSION['cancel_booking']);
           header("Location: cancelled.php");
         }
@@ -216,7 +239,7 @@
         $_SESSION['hotel'] = $_POST['hotel'];
         $_SESSION['guests'] = $_POST['guests'] ;
         $_SESSION['rooms'] = $_POST['rooms'] ;
-        $sql_booking_edit = "UPDATE tbl_bookings SET date_in = '$this->date_in', date_out = '$this->date_out', hotel_code = '$this->hotel', num_guests = '$this->guests', num_rooms = '$this->rooms' WHERE id = '$submit_id'";
+        $sql_booking_edit = "UPDATE tbl_bookings SET date_in = '$this->date_in', date_out = '$this->date_out', hotel_code = '$this->hotel', num_guests = '$this->guests', num_rooms = '$this->rooms' WHERE id = '$this->submit_id'";
         if(!$conn->query($sql_booking_edit)) {
           echo "ERROR: " . $conn->error;
         } else {

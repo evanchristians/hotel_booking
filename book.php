@@ -9,20 +9,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Make a booking</title>
+  <title>Booking | HotelBooking</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
 		$(window).on("load", function() {
-      $('main').fadeIn(178).removeClass('hidden');
+      $('main').fadeIn(278).removeClass('hidden');
 
       $("button").click(function(){
-          $("main").fadeOut(178).addClass('hidden');
+          $("main").fadeOut(278).addClass('hidden');
       });
 
       $("a").click(function(){
-          $("main").fadeOut(178).addClass('hidden');
+          $("main").fadeOut(278).addClass('hidden');
       });
 
       $( "select" ).change(function() {
@@ -77,7 +77,6 @@
     if (isset($_POST['edit'])) {
       $makeBooking->handleBooking($conn);
     }
-    if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; }
     ?>
     <form action="index.php" method="post">
       <h3 id="logged_user">
@@ -154,7 +153,7 @@
               </div>
             </div>
             <span class="hidden">
-              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; }?>">
+              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; } else { echo ""; }?>">
             </span>
             <button type="submit" name="<?php if(isset($_SESSION['edit_booking'])){ echo 'edit'; } else { echo 'book'; } ?>" id="book">
               <?php if(isset($_SESSION['edit_booking'])){ echo 'Edit booking'; } else { echo 'Make booking'; } ?>

@@ -60,14 +60,14 @@
 	</footer>
 	<script>
 		$(window).on("load", function() {
-			$('main').fadeIn(178).removeClass('hidden');
+			$('main').fadeIn(278).removeClass('hidden');
 
 			$("button").click(function(){
-				$("main").fadeOut(178).addClass('hidden');
+				$("main").fadeOut(278).addClass('hidden');
 			});
 
 			$("a").click(function(){
-				$("main").fadeOut(178).addClass('hidden');
+				$("main").fadeOut(278).addClass('hidden');
 			});
 		});
 	</script>

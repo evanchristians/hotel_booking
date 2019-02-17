@@ -71,6 +71,13 @@
   <?php
   if (isset($_SESSION['user'])) {
     $makeBooking = new makeBooking($conn);
+    if (isset($_POST['book'])) {
+      $makeBooking->insertBooking($conn);
+    }
+    if (isset($_POST['edit'])) {
+      $makeBooking->handleBooking($conn);
+    }
+    if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; }
     ?>
     <form action="index.php" method="post">
       <h3 id="logged_user">
@@ -79,9 +86,16 @@
     </form>
   </header>
   <main class="hidden">
-    <form action="conf_booking.php" method="post" class="grid">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="grid">
         <div class="logbox">
-          <h2>Make a booking</h2>
+          <h2>
+            <?php if(isset($_SESSION['edit_booking'])) {
+              echo "Edit Booking ID: #" . $_SESSION['booking_id']; 
+            } else {
+              echo "Make a Booking";
+            }
+            ?>
+          </h2>
           <div class="inputs">
             <div class="field date">
               <span class="label_mini">
@@ -139,7 +153,12 @@
                 </select>
               </div>
             </div>
-            <button type="submit" name="book" id="book">Make booking</button>
+            <span class="hidden">
+              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; }?>">
+            </span>
+            <button type="submit" name="<?php if(isset($_SESSION['edit_booking'])){ echo 'edit'; } else { echo 'book'; } ?>" id="book">
+              <?php if(isset($_SESSION['edit_booking'])){ echo 'Edit booking'; } else { echo 'Make booking'; } ?>
+            </button>
           </div>
         </div>
         <div id="hotel_image">

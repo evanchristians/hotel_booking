@@ -37,7 +37,7 @@
 					<div class="field">
 
 						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" value="<?php if(isset($_POST['login'])){ echo $_POST['email'];}else if(isset($_SESSION['reg_user'])){echo $_SESSION['reg_user'];} ?>" placeholder="you@example.com" autocomplete="off"> 
+						<input type="email" name="email" value="<?php if(isset($_POST['login'])){ echo $_POST['email'];}else if(isset($_SESSION['reg_user'])){echo $_SESSION['reg_user'];} ?>" placeholder="you@example.com" autocomplete="off"> 
 
 					</div>
 					<div class="field">

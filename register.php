@@ -41,7 +41,7 @@
 					<div class="field">
 
 						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" > 
+						<input type="email" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" > 
 
 					</div>
 					<div class="field">

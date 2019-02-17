@@ -11,9 +11,9 @@ define('DB_NAME', 'db_booking');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-----------------------------------------------------------------------
+// ----------------------------------------------------------------------
 
-PRODUCTION ENV
+// PRODUCTION ENV
 
 if ($cleardb_url = parse_url(getenv("mysql://bfdd1a56855e29:1dc6a049@us-cdbr-iron-east-03.cleardb.net/heroku_a262583a747ea80?reconnect=true"))) {
   $cleardb_server   = "us-cdbr-iron-east-03.cleardb.net";

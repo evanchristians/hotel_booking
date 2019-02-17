@@ -46,9 +46,8 @@ header a {
 }
 
 header h3 {
-    margin: 0 1em !important;
     width: 100%;
-    margin: 1em;
+    margin: 1em 0;
     font-weight: 400;
     display: flex;
     justify-content: flex-end;
@@ -57,7 +56,7 @@ header h3 {
 
 header h2 {
     width: 100%;
-    margin: .5em;
+    margin: .5em 0;
     display: flex;
     justify-content: flex-start;
 }
@@ -340,6 +339,8 @@ select:focus, input[type="date"]:focus {
     padding: 2em;
 }
 .conf_title {
+    display: flex;
+    align-items: center;
     background: #4b4b4baa;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
@@ -353,7 +354,6 @@ select:focus, input[type="date"]:focus {
     color: #FD5200;
     border-left: none;
     padding: .5em 1em;
-    white-space: nowrap;
     text-align: left;
     border-right: .5em solid #FD5200;
 }
@@ -362,8 +362,9 @@ select:focus, input[type="date"]:focus {
     position: absolute;
     z-index: -9999;
     opacity: 0;
-    height: 0;
+    height: 0 !important;
     overflow: hidden;
+    width: 0 !important;
 }
 /* LOADER */
 
@@ -484,6 +485,8 @@ select:focus, input[type="date"]:focus {
         display: block;
         background: #FD5200;
         color: #fff !important;
+        padding: .4em 0;
+
       }
       header h2 {
         justify-content: center;

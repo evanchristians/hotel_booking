@@ -159,7 +159,6 @@
         </div>
     </form>
   </main>
-  <?php $makeBooking->showBooking($conn); ?>
     <?php
   } else {
     ?>

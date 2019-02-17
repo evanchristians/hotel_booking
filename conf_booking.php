@@ -31,9 +31,11 @@
   <header>
   <h2>HotelBooking</h2>
   <?php
-  if (isset($_SESSION['user']) && isset($_POST['book'])) {
-      $makeBooking = new makeBooking($conn);
+  if (isset($_SESSION['user'])) {
+    $makeBooking = new makeBooking($conn);
+    if (isset($_POST['book'])) {
       $makeBooking->insertBooking($conn);
+    }
     ?>
     <form action="index.php" method="post">
       <h3>
@@ -41,7 +43,7 @@
       </h3>
     </form>
   </header>
-  <main class="hidden">
+  <main class="hidden" style="padding-bottom: 2em">
     <h2>Would you like to confirm this booking?</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <?php $makeBooking->showBooking($conn); ?>

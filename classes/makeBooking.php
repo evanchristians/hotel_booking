@@ -82,68 +82,66 @@
 
     // SHOW BOOKING BEFORE CONFIRM
     function showBooking($conn) {
-      if (isset($_POST['book'])) {
-        $sql_show_booking = "SELECT * FROM  tbl_booking WHERE guest = '$this->email'";
-        $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = '$this->hotel'";
-        $get_hotel = $conn->query($sql_get_hotel);
-        $hotel_row = $get_hotel->fetch_array(MYSQLI_ASSOC);
-        $hotel_name = $hotel_row['hotel_name'];
-        $date_in_obj = new DateTime($this->date_in);
-        $date_out_obj = new DateTime($this->date_out);
-        $difference = $date_in_obj->diff($date_out_obj)->format("%d");
-        if($conn->query($sql_show_booking)) {
-          ?>
-          <div class="grid conf_grid">
-            <span class="conf_title">Booking for</span>
-            <span class="conf_data">
-              <?php echo $this->user . " (" . $this->email . ")" ?>
-            </span>
-            <span class="conf_title">Hotel</span>
-            <span class="conf_data">
-              <?php echo $hotel_name ?>
-            </span>
-            <span class="conf_title">Number of guests</span>
-            <span class="conf_data">
-              <?php echo $this->guests ?>
-            </span>
-            <span class="conf_title">Number of rooms</span>
-            <span class="conf_data">
-              <?php echo $this->rooms ?>
-            </span>
-            <span class="conf_title">Duration</span>
-            <span class="conf_data">
-              <?php if($difference == 1) {
-                echo $difference . " day";  
-              } else {
-                echo $difference . " days";
-              }
-              ?>
-            </span>
-            <span class="conf_title">Check-in</span>
-            <span class="conf_data">
-              <?php echo $date_in_obj->format("l, d F Y") ?>
-            </span>
-            <span class="conf_title">Check-out</span>
-            <span class="conf_data">
-              <?php echo $date_out_obj->format("l, d F Y") ?>
-            </span>
-          </div>
-          <button type="submit" name="confirm_booking">
-            <i class="fas fa-check"></i>
-            Confirm
-          </button>
-          <button type="submit" name="edit_booking">
-            <i class="fas fa-edit"></i>          
-            Edit
-          </button>
-          <button type="submit" name="cancel_booking">
-            <i class="fas fa-trash"></i>              
-            Cancel
-          </button>
-          <?php
-        } else {
-          echo "ERROR: " . $conn->error;
-        }
+      $sql_show_booking = "SELECT * FROM  tbl_booking WHERE guest = '$this->email'";
+      $sql_get_hotel = "SELECT * FROM tbl_hotels WHERE hotel_code = '$this->hotel'";
+      $get_hotel = $conn->query($sql_get_hotel);
+      $hotel_row = $get_hotel->fetch_array(MYSQLI_ASSOC);
+      $hotel_name = $hotel_row['hotel_name'];
+      $date_in_obj = new DateTime($this->date_in);
+      $date_out_obj = new DateTime($this->date_out);
+      $difference = $date_in_obj->diff($date_out_obj)->format("%d");
+      if($conn->query($sql_show_booking)) {
+        ?>
+        <div class="grid conf_grid">
+          <span class="conf_title">Booking for</span>
+          <span class="conf_data">
+            <?php echo $this->user . " (" . $this->email . ")" ?>
+          </span>
+          <span class="conf_title">Hotel</span>
+          <span class="conf_data">
+            <?php echo $hotel_name ?>
+          </span>
+          <span class="conf_title">Number of guests</span>
+          <span class="conf_data">
+            <?php echo $this->guests ?>
+          </span>
+          <span class="conf_title">Number of rooms</span>
+          <span class="conf_data">
+            <?php echo $this->rooms ?>
+          </span>
+          <span class="conf_title">Duration</span>
+          <span class="conf_data">
+            <?php if($difference == 1) {
+              echo $difference . " day";  
+            } else {
+              echo $difference . " days";
+            }
+            ?>
+          </span>
+          <span class="conf_title">Check-in</span>
+          <span class="conf_data">
+            <?php echo $date_in_obj->format("l, d F Y") ?>
+          </span>
+          <span class="conf_title">Check-out</span>
+          <span class="conf_data">
+            <?php echo $date_out_obj->format("l, d F Y") ?>
+          </span>
+        </div>
+        <button type="submit" name="confirm_booking">
+          <i class="fas fa-check"></i>
+          Confirm
+        </button>
+        <button type="submit" name="edit_booking">
+          <i class="fas fa-edit"></i>          
+          Edit
+        </button>
+        <button type="submit" name="cancel_booking">
+          <i class="fas fa-trash"></i>              
+          Cancel
+        </button>
+        <?php
+      } else {
+        echo "ERROR: " . $conn->error;
       }
     }
   }

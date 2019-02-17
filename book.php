@@ -60,6 +60,12 @@
   </script>
 </head>
 <body>
+  <div class="preload">
+    <img src="assets/lsb.jpg" alt="">
+    <img src="assets/dlla.jpg" alt="">
+    <img src="assets/ttb.jpg" alt="">
+    <img src="assets/dth.jpg" alt="">
+  </div>
   <header>
   <h2>HotelBooking</h2>
   <?php

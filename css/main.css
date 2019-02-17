@@ -357,6 +357,14 @@ select:focus, input[type="date"]:focus {
     text-align: left;
     border-right: .5em solid #FD5200;
 }
+
+.preload {
+    position: absolute;
+    z-index: -9999;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
 /* LOADER */
 
 .lds-roller {

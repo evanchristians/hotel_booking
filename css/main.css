@@ -18,7 +18,7 @@ body {
     text-align: center;
 }
 
-button, input[type=email], input[type=password] {
+button, input[type=email], input[type=password],  input[type=text] {
     font-family: 'KoHo', sans-serif;
 }
 .hero {
@@ -143,7 +143,7 @@ button:hover {
     background: #FD5200;
 
 }
-input[type=email], input[type=password], input[type=date], select {
+input[type=email], input[type=text], input[type=password], input[type=date], select {
     font-size: 1em;
     padding: .5em 1em;
     background: none;
@@ -152,7 +152,7 @@ input[type=email], input[type=password], input[type=date], select {
     transition: all 200ms ease-out;
 
 }
-input[type=email]:focus, input[type=password]:focus {
+input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
     outline: none;
 }
 

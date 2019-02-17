@@ -85,7 +85,7 @@
     </form>
   </header>
   <main class="hidden">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="grid">
+    <form action="book.php" method="post" class="grid">
         <div class="logbox">
           <h2>
             <?php if(isset($_SESSION['edit_booking'])) {
@@ -153,9 +153,9 @@
               </div>
             </div>
             <span class="hidden">
-              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $_SESSION['booking_id']; } else { echo ""; }?>">
+              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $submit_id; } else { echo ""; }?>">
             </span>
-            <button type="submit" name="<?php if(isset($_SESSION['edit_booking'])){ echo 'edit'; } else { echo 'book'; } ?>" id="book">
+            <button type="submit" name="<?php if(isset($_SESSION['edit_booking'])){ echo 'edit'; } else { echo 'book'; } ?>">
               <?php if(isset($_SESSION['edit_booking'])){ echo 'Edit booking'; } else { echo 'Make booking'; } ?>
             </button>
           </div>

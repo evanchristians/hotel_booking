@@ -49,7 +49,9 @@
   <main class="hidden" style="padding-bottom: 2em">
     <h2>Would you like to confirm this booking?</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-      <?php $makeBooking->showBooking($conn); ?>
+      <?php $makeBooking->showBooking($conn);
+       ?>
+
     </form>
   </main>
     <?php

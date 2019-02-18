@@ -15,14 +15,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     $(window).on("load", function() {
-      $('main').fadeIn(278).removeClass('hidden');
+      $('main').fadeIn(355).removeClass('hidden');
 
       $("button").click(function(){
-        $("main").fadeOut(278).addClass('hidden');
+        $("main").fadeOut(355).addClass('hidden');
       });
 
       $("a").click(function(){
-        $("main").fadeOut(278).addClass('hidden');
+        $("main").fadeOut(355).addClass('hidden');
       });
     });
   </script>

@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #fdfdfd; 
+    background: #fbfbfb; 
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -202,9 +202,9 @@ footer h2 {
     color: #FD5200;
     margin-right: .5em;
 }
-.redir {
+/* .redir {
     text-align: center;
-}
+} */
 
 
 .cta {
@@ -242,12 +242,13 @@ footer h2 {
     margin: 0 auto;
     width: 100% !important;
     overflow: hidden;
-    box-shadow: 0 .5em 2em #04040406;
+    box-shadow: 0 .5em 2em .5em #0404040a;
     grid-row-gap: 1em;
 }
 .grid .logbox {
     max-width: 100%;
     background: #fff;
+    padding-bottom: 4em;
 }
 #hotel_image {
     position: relative;

@@ -13,10 +13,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     $(window).on("load", function() {
-      $('main').fadeIn(278).removeClass('hidden');
+      $('main').fadeIn(355).removeClass('hidden');
 
       setTimeout(function(){
-				$("#redir").fadeOut(278).addClass('hidden');
+				$("#redir").fadeOut(355).addClass('hidden');
         window.location.href = "book.php";
 			}, 2500);
     });

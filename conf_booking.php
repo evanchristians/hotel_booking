@@ -41,6 +41,7 @@
       header("Location: book.php");
     }
     if (isset($_SESSION['editted'])) {
+      unset($_SESSION['edit_booking']);
       header("Location: conf_booking.php");
     }
     if (isset($_POST['cancel_booking'])) {

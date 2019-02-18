@@ -36,24 +36,28 @@
           $( "#hotel_name" ).text("Long Street Backpackers");
           $( "#hotel_blurb" ).text("Long Street Backpackers is an old school, communal, traveller’s hostel in the heart of Cape Town. Here, we’re all about new friends, spontaneity and laid-back fun. It is centrally located in Cape Town’s City Bowl, making it the perfect home base while you explore the Mother City.");
           $( "#stars" ).html(star + star + starO + starO + starO);
+          $( "#price" ).text("R300.00 p.n.");
 
         } else if(sel.val() === "dlla") {
           $( "#hotel_image" ).css("background-image", "url('assets/dlla.jpg')");
           $( "#hotel_name" ).text("Daddy Long Legs Art Hotel & Self-Catering Apartments");
           $( "#hotel_blurb" ).text("As an independent travellers’ hotel, Daddy Long Legs will appeal to those seeking an authentic experience of Cape Town. It is a place to meet others and is ideally situated for exploring the character and nightlife of the city and its surrounds.");
-          $( "#stars" ).html(star + star + star + starO + starO);
+          $( "#stars" ).html(star + star + star + star + starO);
+          $( "#price" ).text("R1251.00 p.n.");
 
         } else if(sel.val() === "ttb") {
           $( "#hotel_image" ).css("background-image", "url('assets/ttb.jpg')");         
           $( "#hotel_name" ).text("The Table Bay Hotel");
           $( "#hotel_blurb" ).text("The Table Bay offers the ultimate in 5-star luxury hotel accommodation in Cape Town. Considered to be the best address in Cape Town, this sophisticated Sun International property was opened in May 1997 by former South African president, Nelson Mandela. As part of the Sunlux Collection, The Table Bay continues to set its own standards in international service, cuisine and luxury.");
           $( "#stars" ).html(star + star + star + star + star);
+          $( "#price" ).text("R8993.00 p.n.");
           
         } else if(sel.val() === "dth") {   
           $( "#hotel_image" ).css("background-image", "url('assets/dth.jpg')");   
           $( "#hotel_name" ).text("DoubleTree by Hilton Hotel Cape Town - Upper Eastside");
           $( "#hotel_blurb" ).text("Overlooking the busy Cape Town harbor and with an impressive backdrop of the green slopes of Devil’s Peak, DoubleTree by Hilton Hotel Cape Town - Upper Eastside offers easy access to the vibrant downtown area and the central business district.");
           $( "#stars" ).html(star + star + star + star + starO);
+          $( "#price" ).text("R1214.00 p.n.");
         }      
       }); 
 		});
@@ -173,6 +177,9 @@
           </div>
           <div class="hotel_desc">
             <h2 id="hotel_name">Long Street Backpackers</h2>
+          </div>
+          <div class="price" id="price">
+            R300.00 p.n.
           </div>
         </div>
     </form>

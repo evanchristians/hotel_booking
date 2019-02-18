@@ -37,7 +37,8 @@
         hotel_code VARCHAR(4) NOT NULL UNIQUE,
         hotel_name VARCHAR(100) NOT NULL,
         hotel_description VARCHAR(255) NOT NULL,
-        hotel_stars INT(1) NOT NULL
+        hotel_stars INT(1) NOT NULL,
+        hotel_price INT(100) NOT NULL
         )";
       if(!$conn->query($sql_hotel)) {
         // echo "ERROR: " . $conn->error;
@@ -45,19 +46,19 @@
 
       // HOTEL DEFAULT
       $sql_hotel_default = "INSERT INTO tbl_hotels(
-        hotel_code, hotel_name, hotel_description, hotel_stars
+        hotel_code, hotel_name, hotel_description, hotel_stars, hotel_price
         )
         VALUES(
-        'lsb', 'Long Street Backpackers', 'lorem ipsum', '2'
+        'lsb', 'Long Street Backpackers', 'lorem ipsum', '2', '300'
         ),
         (
-        'dlla', 'Daddy Long Legs Art Hotel & Self-Catering Apartments', 'lorem ipsum', '3'
+        'dlla', 'Daddy Long Legs Art Hotel & Self-Catering Apartments', 'lorem ipsum', '3', '1251'
         ),
         (
-        'ttb', 'The Table Bay Hotel', 'lorem ipsum', '4'
+        'ttb', 'The Table Bay Hotel', 'lorem ipsum', '4', '8993'
         ),
         (
-        'dth', 'DoubleTree by Hilton Hotel Cape Town - Upper Eastside','lorem ipsum', '5'
+        'dth', 'DoubleTree by Hilton Hotel Cape Town - Upper Eastside','lorem ipsum', '5', '1214'
         )";
       if(!$conn->query($sql_hotel_default)) {
         // echo "ERROR: " . $conn->error;
@@ -116,6 +117,7 @@
       $get_hotel = $conn->query($sql_get_hotel);
       $hotel_row = $get_hotel->fetch_array(MYSQLI_ASSOC);
       $hotel_name = $hotel_row['hotel_name'];
+      $hotel_price = $hotel_row['hotel_price'];
 
       if (isset($_SESSION['editted'])) {
         $sql_get_booking = "SELECT * FROM tbl_bookings WHERE id = '$this->submit_id'"; 
@@ -174,6 +176,16 @@
           <span class="conf_title">Check-out</span>
           <span class="conf_data">
             <?php echo $date_out_obj->format("l, d F Y") ?>
+          </span>
+          <span class="conf_title">Price</span>
+          <span class="conf_data">
+            <?php 
+              if ($difference == 0) {
+                echo "R" . number_format($hotel_price * 1 * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p.n.)";
+              } else {
+                echo "R" . number_format($hotel_price * $difference * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p.n.)"; 
+              }
+            ?>
           </span>
           <span class="hidden">
             <input type="text" value="<?php echo $this->booking_id ?>" name="booking_id">

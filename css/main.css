@@ -367,6 +367,17 @@ select:focus, input[type="date"]:focus {
     overflow: hidden;
     width: 0 !important;
 }
+
+.price {
+    background: #FD5200;
+    color: #fff;
+    font-size: 1.1em;
+    padding: .3em 1em;
+    border-radius: 2em;
+    position: absolute;
+    bottom: 1.5em;
+    right: 1.5em;
+}
 /* LOADER */
 
 .lds-roller {

@@ -75,7 +75,7 @@
       $makeBooking->insertBooking($conn);
     }
     if (isset($_POST['edit'])) {
-      $makeBooking->handleBooking($conn);
+      $makeBooking->editBooking($conn);
     }
     ?>
     <form action="index.php" method="post">
@@ -153,7 +153,7 @@
               </div>
             </div>
             <span class="hidden">
-              <input type="text" name="submit_id" value="<?php if(isset($_SESSION['edit_booking'])){ echo $submit_id; } else { echo ""; }?>">
+              <input type="text" name="submit_id" <?php if(isset($_SESSION['edit_booking'])){ echo "value='" . $_SESSION['booking_id'] . "'"; }?>>
             </span>
             <button type="submit" name="<?php if(isset($_SESSION['edit_booking'])){ echo 'edit'; } else { echo 'book'; } ?>">
               <?php if(isset($_SESSION['edit_booking'])){ echo 'Edit booking'; } else { echo 'Make booking'; } ?>

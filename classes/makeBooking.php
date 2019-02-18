@@ -128,13 +128,10 @@
         num_guests = '$this->guests' &&
         num_rooms = '$this->rooms')";
       }
-      unset($_SESSION['editted']);
-
       $get_booking = $conn->query($sql_get_booking);
       $booking_row = $get_booking->fetch_array(MYSQLI_ASSOC);
-      $this->booking_id = $booking_row['id'];
-      $_SESSION['booking_id'] = $this->booking_id;
-      
+      $_SESSION['booking_id'] = $booking_row['id'];
+
       $date_in_obj = new DateTime($this->date_in);
       $date_out_obj = new DateTime($this->date_out);
       $difference = $date_in_obj->diff($date_out_obj)->format("%d");
@@ -198,65 +195,64 @@
       } else {
         echo "ERROR: " . $conn->error;
       }
+      unset($_SESSION['editted']);
     }
 
     // HANDLE BOOKING CONFIRMATION 
-    function handleBooking($conn) {
-
-      if(isset($_POST['booking_id'])) {
-        $this->submit_id = $_POST['booking_id'];
-
-      } else if(isset($_POST['submit_id'])) {
+    function confirmBooking($conn) {
+      
+      if(isset($_POST['submit_id'])) {
         $this->submit_id = $_POST['submit_id'];
-      }
-      if(isset($_POST['edit_booking'])) {
-        $_SESSION['edit_booking'] = $_POST['edit_booking'];
-      }
-      if(isset($_POST['cancel_booking'])) {
-        $_SESSION['cancel_booking'] = $_POST['cancel_booking'];
       }
 
       // confirm booking 
       if (isset($_POST['confirm_booking'])) {
-        $sql_booking_confirm = "UPDATE tbl_bookings SET confirm_booking = '1' WHERE id = '$this->submit_id'";
+        $id = $_SESSION['booking_id'];
+        $sql_booking_confirm = "UPDATE tbl_bookings SET confirm_booking = '1' WHERE id = '$id'";
         if(!$conn->query($sql_booking_confirm)) {
           // echo "ERROR: " . $conn->error;
         } else {
-          unset($_SESSION['booking_id']);
           header("Location: confirmed.php");
+          unset($_SESSION['booking_id']);
         }
       }
-      
+    }
+
+    function cancelBooking($conn) {
       // cancel booking 
-      if (isset($_SESSION['cancel_booking'])) {
-        $sql_booking_cancel = "DELETE FROM tbl_bookings WHERE id = '$this->submit_id'";
+      if (isset($_POST['cancel_booking'])) {
+        $id = $_SESSION['booking_id'];
+        $sql_booking_cancel = "DELETE FROM tbl_bookings WHERE id = '$id'";
         if(!$conn->query($sql_booking_cancel)) {
           echo "ERROR: " . $conn->error;
-          echo $this->submit_id;
         } else {
+          header("Location: cancelled.php");
           unset($_SESSION['booking_id']);
           unset($_SESSION['cancel_booking']);
-          header("Location: cancelled.php");
         }
       }
+    }
       
+    function editBooking($conn) {
       // edit booking 
-      if (isset($_SESSION['edit_booking']) && isset($_POST['edit'])) {
-        $dateIn = $_SESSION['date_in'] = $_POST['date_in'];
-        $dateOut = $_SESSION['date_out'] = $_POST['date_out'];
-        $hotel = $_SESSION['hotel'] = $_POST['hotel'];
-        $guests = $_SESSION['guests'] = $_POST['guests'] ;
-        $rooms = $_SESSION['rooms'] = $_POST['rooms'] ;
-        $id = $_SESSION['booking_id'];
-        $sql_booking_edit = "UPDATE tbl_bookings SET date_in = '$dateIn', date_out = '$dateOut', hotel_code = '$hotel', num_guests = '$guests', num_rooms = '$rooms' WHERE id = '$id'";
-        if(!$conn->query($sql_booking_edit)) {
-          // echo "ERROR: " . $conn->error;
-        } else {
-          $_SESSION['editted'] = true;
-          unset($_SESSION['edit_booking']);
-          header("Location: conf_booking.php");
+      // if(isset($_SESSION['edit_booking'])) {
+        // $_SESSION['edit_booking'] = true;
+        if (isset($_SESSION['edit_booking'])) {
+          $dateIn = $_SESSION['date_in'] = $_POST['date_in'];
+          $dateOut = $_SESSION['date_out'] = $_POST['date_out'];
+          $hotel = $_SESSION['hotel'] = $_POST['hotel'];
+          $guests = $_SESSION['guests'] = $_POST['guests'] ;
+          $rooms = $_SESSION['rooms'] = $_POST['rooms'] ;
+          $id = $_SESSION['booking_id'];
+          $sql_booking_edit = "UPDATE tbl_bookings SET date_in = '$dateIn', date_out = '$dateOut', hotel_code = '$hotel', num_guests = '$guests', num_rooms = '$rooms' WHERE id = '$id'";
+          if(!$conn->query($sql_booking_edit)) {
+          } else {
+            header("Location: conf_booking.php");
+            $_SESSION['editted'] = true;
+            // unset($_SESSION['edit_booking']);
+          }
         }
-      }
+      // }
     }
   }
 ?>

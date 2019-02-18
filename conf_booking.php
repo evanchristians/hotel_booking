@@ -33,12 +33,19 @@
   <?php
   if (isset($_SESSION['user'])) {
     $makeBooking = new makeBooking($conn);
-    if (isset($_POST['confirm_booking']) || isset($_POST['cancel_booking']) || isset($_POST['edit_booking'])){
-      $makeBooking->handleBooking($conn);
+    if (isset($_POST['confirm_booking'])){
+      $makeBooking->confirmBooking($conn);
     }
     if (isset($_POST['edit_booking'])) {
+      $_SESSION['edit_booking'] = true;
       header("Location: book.php");
     }
+    if (isset($_SESSION['editted'])) {
+      header("Location: conf_booking.php");
+    }
+    if (isset($_POST['cancel_booking'])) {
+      $makeBooking->cancelBooking($conn);
+    } 
     ?>
     <form action="index.php" method="post">
       <h3>

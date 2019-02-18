@@ -513,4 +513,10 @@ select:focus, input[type="date"]:focus {
       main {
         padding-top: 4em;
       }
+      .price {
+          bottom: 4em;
+          left: 50%;
+          transform: translateX(-50%);
+          width: fit-content;
+      }
   }

@@ -10,10 +10,11 @@
   <script>
 		$(window).on("load", function() {
 			$('main').fadeIn(355).removeClass('hidden');
-			setTimeout(function(){
-				$("main").fadeOut(355).addClass('hidden');
-        window.location.href = "index.php";
-			}, 2000);
+      setTimeout(function(){
+				$("main").fadeOut(355, function() {
+          window.location.href = "index.php"
+        }).addClass('hidden');
+			}, 2500);
 		});
 	</script>
 </head>

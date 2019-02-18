@@ -16,8 +16,9 @@
       $('main').fadeIn(355).removeClass('hidden');
 
       setTimeout(function(){
-				$("#redir").fadeOut(355).addClass('hidden');
-        window.location.href = "book.php";
+				$("main").fadeOut(355, function() {
+          window.location.href = "book.php"
+        }).addClass('hidden');
 			}, 2500);
     });
   </script>

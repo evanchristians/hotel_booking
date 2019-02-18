@@ -35,7 +35,7 @@
     <h2>HotelBooking</h2>
     <form action="index.php" method="post">
       <h3>
-        Logged in as&nbsp<span class="cap"><?php echo $_SESSION['user']; ?></span>&nbsp|&nbsp<button class="link" type="submit" name="logout">Sign out</button>
+        Logged in as&nbsp<span class="cap"><?php echo $_SESSION['user'] . " " . $_SESSION['surname']; ?></span>&nbsp|&nbsp<button class="link" type="submit" name="logout">Sign out</button>
       </h3>
     </form>
   </header>

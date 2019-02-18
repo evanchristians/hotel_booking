@@ -11,6 +11,7 @@
       $sql_create_table = "CREATE TABLE IF NOT EXISTS tbl_users(
         id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(32) NOT NULL,
+        surname VARCHAR(32),
         email VARCHAR(64) NOT NULL,
         password VARCHAR(64) NOT NULL
         );";
@@ -64,6 +65,7 @@
         if ($this->user_row['password'] == $password) {
           header("Location: book.php");
           $_SESSION['user'] = $this->user_row['name'];
+          $_SESSION['surname'] = $this->user_row['surname'];
           $_SESSION['email'] = $this->user_row['email'];
         } else {
           ?>

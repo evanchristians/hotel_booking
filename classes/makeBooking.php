@@ -136,7 +136,7 @@
 
       $date_in_obj = new DateTime($this->date_in);
       $date_out_obj = new DateTime($this->date_out);
-      $difference = $date_in_obj->diff($date_out_obj)->format("%d");
+      $difference = $date_in_obj->diff($date_out_obj)->format("%a");
       if($get_booking) {
         ?>
         <div class="grid conf_grid">
@@ -181,9 +181,9 @@
           <span class="conf_data">
             <?php 
               if ($difference == 0) {
-                echo "R" . number_format($hotel_price * 1 * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p.n.)";
+                echo "R" . number_format($hotel_price * 1 * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p/n)";
               } else {
-                echo "R" . number_format($hotel_price * $difference * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p.n.)"; 
+                echo "R" . number_format($hotel_price * $difference * $this->rooms) . ".00 (R" . number_format($hotel_price) . ".00 p/n)"; 
               }
             ?>
           </span>

@@ -10,6 +10,7 @@
       $sql_create_table = "CREATE TABLE IF NOT EXISTS tbl_users(
         id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(32) NOT NULL,
+        surname VARCHAR(32),
         email VARCHAR(64) NOT NULL,
         password VARCHAR(64) NOT NULL
         );";
@@ -94,9 +95,10 @@
     function confirmUser($conn) {
         if ($this->pass_auth && $this->email_auth && $this->no_user) {
           $name = $_POST['name'];
+          $surname = $_POST['surname'];
           $email = $_POST['email'];
           $password = $_POST['pw'];
-          $sql_new_user = "INSERT INTO tbl_users(name, email, password) VALUES ('$name', '$email', '$password')";
+          $sql_new_user = "INSERT INTO tbl_users(name, surname, email, password) VALUES ('$name', '$surname', '$email', '$password')";
           if (!$conn->query($sql_new_user)) {
             echo "error: " . $conn->error;
           } else {

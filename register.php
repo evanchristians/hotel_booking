@@ -40,6 +40,12 @@
 					</div>
 					<div class="field">
 
+						<i class="fas fa-user"></i>
+						<input type="text" name="surname" placeholder="surname" value="<?php if(isset($_POST['register'])){ echo $_POST['surname']; } ?>" autocomplete="off" > 
+
+					</div>
+					<div class="field">
+
 						<i class="fas fa-envelope"></i>
 						<input type="email" name="email" value="<?php if(isset($_POST['register'])){ echo $_POST['email']; } ?>" placeholder="you@example.com" autocomplete="off" > 
 

@@ -297,7 +297,7 @@ footer h2 {
 }
 
 #hotel_image:hover .overlay {
-    background: #4d4d4def;
+    background: #4d4d4df8;
     opacity: 1;
 }
 #hotel_image:hover .stars {
@@ -369,7 +369,7 @@ select:focus, input[type="date"]:focus {
 }
 
 .price {
-    background: #FD5200;
+    background: #16a085;
     color: #fff;
     font-size: 1.1em;
     padding: .3em 1em;

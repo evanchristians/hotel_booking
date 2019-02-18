@@ -22,7 +22,7 @@ if ($cleardb_url = parse_url(getenv("mysql://bfdd1a56855e29:1dc6a049@us-cdbr-iro
   $cleardb_db       = "heroku_a262583a747ea80";
 }
 
-mysql -u bfdd1a56855e29 -h us-cdbr-iron-east-03.cleardb.net -p 1dc6a049
+// mysql -u bfdd1a56855e29 -h us-cdbr-iron-east-03.cleardb.net -p 1dc6a049
 
 $active_group = 'default';
 $query_builder = TRUE;
